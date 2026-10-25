@@ -558,7 +558,7 @@ const lastUpdate = "2026-10-25";
 const dateText = new Date(lastUpdate + "T12:00:00")
     .toLocaleDateString("ar-EG-u-nu-latn", { day: "numeric", month: "long", year: "numeric" });
 
-// ===== قائمة المنتجات بالكامل بالأوزان والأحجام والدقة الكاملة =====
+// ===== قائمة المنتجات بالأسعار الصحيحة المطابقة لللافته =====
 const products = [
     { name: "سمان رويال سوبر جامبو", price: 126, image: "dar.jpeg", cat: "دواجن" },
     { name: "برجر دارا وزن", price: 229.95, image: "kofta.jpg", cat: "الحوم" },
@@ -579,17 +579,17 @@ const products = [
     { name: "كريستال سمن اصفر 2 كيلو", price: 234.95, image: "kerstal.jpeg", cat: "الزيوت والسمن" },
     { name: "موبي جبنة موزاريلا طبيعي مبشور 1 كيلو", price: 309.95, image: "uij.jpg", cat: "الأجبان" },
     { name: "موبي جبنة موزاريلا انالوج مبشور 1 كيلو", price: 149.95, image: "zas.jpg", cat: "الأجبان" },
-    { name: "ورق عنب مجمد 250 جم - جيفريكس", price: 50.00, image: "ewe.jpeg", cat: "الخضروات المجمدة" },
-    { name: "خضار للشورية مجمد 400 جم - جيفريكس", price: 45.00, image: "hg.jpeg", cat: "الخضروات المجمدة" },
-    { name: "بامية خصوصي مجمدة 400 جم - جيفريكس", price: 60.00, image: "lal.jpeg", cat: "الخضروات المجمدة" },
-    { name: "بامية خضراء مجمدة ممتازة 400 جم - بسمة", price: 55.00, image: "pama.jpg", cat: "الخضروات المجمدة" },
-    { name: "بسلة خضراء مجمدة 400 جم - جيفريكس", price: 45.00, image: "poi.jpeg", cat: "الخضروات المجمدة" },
-    { name: "بسلة بالجزر مجمدة 400 جم - بسمة", price: 48.00, image: "psla.jpg", cat: "الخضروات المجمدة" },
-    { name: "بامية صغيرة مجمدة 400 جم - جيفريكس", price: 58.00, image: "sak.jpeg", cat: "الخضروات المجمدة" },
-    { name: "خضروات مشكلة مجمدة لشوربة الخضار 400 جم - بسمة", price: 45.00, image: "sarp.jpg", cat: "الخضروات المجمدة" },
-    { name: "بسلة خضراء مجمدة 400 جم - بسمة", price: 46.00, image: "swq.jpeg", cat: "الخضروات المجمدة" },
-    { name: "بسلة بالجزر مجمدة 400 جم - جيفريكس", price: 47.00, image: "yuyu.jpeg", cat: "الخضروات المجمدة" },
-    { name: "ملوخية خضراء مخروطة مجمدة 400 جم - بسمة", price: 35.00, image: "wre.jpg", cat: "الخضروات المجمدة" }
+    { name: "جيفريكس بامية صغيرة 400 جم", price: 59.95, image: "sak.jpeg", cat: "الخضروات المجمدة" },
+    { name: "جيفريكس ورق عنب 250 جم", price: 54.95, image: "ewe.jpeg", cat: "الخضروات المجمدة" },
+    { name: "جيفريكس بامية خصوصي 400 جم", price: 89.95, image: "lal.jpeg", cat: "الخضروات المجمدة" },
+    { name: "بسمة بسلة سادة 400 جم", price: 52.95, image: "poi.jpeg", cat: "الخضروات المجمدة" },
+    { name: "جيفريكس بسلة سادة 400 جم", price: 59.95, image: "swq.jpeg", cat: "الخضروات المجمدة" },
+    { name: "بسمة بسلة بالجزر 400 جم", price: 28.50, image: "psla.jpg", cat: "الخضروات المجمدة" },
+    { name: "بسمة شوربة خضار 400 جم", price: 20.25, image: "sarp.jpg", cat: "الخضروات المجمدة" },
+    { name: "بسمة ملوخية 400 جم", price: 17.75, image: "wre.jpg", cat: "الخضروات المجمدة" },
+    { name: "بسمة بامية زيرو 400 جم", price: 47.95, image: "pama.jpg", cat: "الخضروات المجمدة" },
+    { name: "جيفريكس خضار للشوربة 400 جم", price: 25.95, image: "hg.jpeg", cat: "الخضروات المجمدة" },
+    { name: "جيفريكس بسلة بالجزر 400 جم", price: 44.95, image: "yuyu.jpeg", cat: "الخضروات المجمدة" }
 ];
 
 function makeImage(p) {
