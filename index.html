@@ -110,15 +110,6 @@ body { background-color: #fff9f2; color: #333; min-height: 100vh; display: flex;
 .soldout-badge { position: absolute; top: 0; left: 0; right: 0; aspect-ratio: 3 / 2; display: flex; align-items: center; justify-content: center; pointer-events: none; }
 .soldout-badge span { background: #d62828; color: #ffffff; font-weight: 800; font-size: 18px; padding: 6px 22px; border-radius: 8px; border: 2px solid #ffffff; transform: rotate(-8deg); box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
 .price.gone { background: #8d8d8d; border-color: #cfcfcf; text-decoration: line-through; }
-
-/* البحث */
-.search-box { margin: 0 auto 6px; width: min(520px, 100%); }
-.search-box input { width: 100%; padding: 12px 18px; border: 2px solid #ffd9bf; border-radius: 999px; font-size: 16px; font-family: 'Cairo', sans-serif; background: #ffffff; color: #2b211c; outline: none; box-shadow: 0 2px 8px rgba(43,33,28,0.06); }
-.search-box input:focus { border-color: #ff6600; }
-
-/* العروض: السعر قبل الخصم */
-.price .old-price { display: block; font-size: 12px; font-weight: 700; text-decoration: line-through; opacity: 0.85; line-height: 1.2; }
-.offer-badge { position: absolute; top: 8px; left: 8px; background: #FFE14D; color: #2b211c; border-radius: 20px; padding: 3px 12px; font-weight: 800; font-size: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); z-index: 2; }
 </style>
 </head>
 <body>
@@ -150,9 +141,6 @@ body { background-color: #fff9f2; color: #333; min-height: 100vh; display: flex;
 
 <section class="products">
     <h2 class="products-title">منتجاتنا وعروضنا</h2>
-
-    <!-- البحث -->
-    <div class="search-box"><input type="search" id="search" placeholder="🔍 ابحث عن منتج..." autocomplete="off"></div>
 
     <!-- شريط الأقسام -->
     <div class="categories-filter" id="categories-filter"></div>
@@ -242,7 +230,7 @@ const lastUpdate = "2026-10-26";
 let dateText = new Date(lastUpdate + "T12:00:00")
     .toLocaleDateString("ar-EG-u-nu-latn", { day: "numeric", month: "long", year: "numeric" });
 
-// ===== نسخة احتياطية للمنتجات (الأصل بيتقرا من Firestore) =====
+// ===== نسخة احتياطية للمنتجات =====
 let products = [
     { name: "صن مول زيت خليط 900 مل", price: 65, image: "srft.jpeg", cat: "الزيوت والسمن" },
     { name: "صن زيت عباد الشمس 900 مل", price: 69, image: "poik.jpg", cat: "الزيوت والسمن" },
@@ -294,15 +282,11 @@ function makeImage(p) {
     return img;
 }
 
-// ترتيب الأقسام وأيقوناتها بدون "الكل"
 const catOrder = ["اللحوم", "دواجن", "الزيوت والسمن", "الأجبان", "الخضروات المجمدة"];
 const catIcons = { "اللحوم": "🥩", "دواجن": "🍗", "الزيوت والسمن": "🫒", "الأجبان": "🧀", "الخضروات المجمدة": "🥦" };
 const rank = c => { const i = catOrder.indexOf(c); return i < 0 ? 99 : i; };
 let categories = [];
 let currentCategory = "";
-let searchTerm = "";
-// توحيد الحروف العربية عشان البحث يلاقي أ/ا و ة/ه و ى/ي
-const norm = s => String(s).toLowerCase().replace(/[\u064B-\u065F]/g, "").replace(/[أإآ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه").trim();
 
 function setProducts(list) {
     products = list;
@@ -340,9 +324,7 @@ function showProducts() {
         });
     }
 
-    const filteredList = searchTerm
-        ? products.filter(p => norm((p.name || "") + " " + (p.cat || "")).includes(searchTerm))
-        : products.filter(p => p.cat === currentCategory);
+    const filteredList = products.filter(p => p.cat === currentCategory);
 
     box.innerHTML = "";
     filteredList.forEach(p => {
@@ -359,28 +341,15 @@ function showProducts() {
             const price = document.createElement("span");
             price.className = p.soldOut ? "price gone" : "price";
             price.textContent = p.price + " جنيه";
-            const onOffer = !p.soldOut && Number(p.oldPrice) > Number(p.price);
-            if (onOffer) {
-                const old = document.createElement("span");
-                old.className = "old-price";
-                old.textContent = p.oldPrice + " جنيه";
-                price.appendChild(old);
-                const badge = document.createElement("span");
-                badge.className = "offer-badge";
-                badge.textContent = "🔥 عرض";
-                card.appendChild(badge);
-            }
             card.appendChild(price);
         }
         const title = document.createElement("h3");
         title.textContent = p.name;
         card.appendChild(title);
-        // محرر الاسم والسعر (بيظهر للأدمن بس)
         if (window.__isAdmin && p.id) card.appendChild(window.__editor(p));
         box.appendChild(card);
     });
 
-    soon.textContent = searchTerm ? "مفيش منتجات بالاسم ده" : "لا توجد منتجات في هذا القسم حالياً";
     soon.style.display = filteredList.length ? "none" : "block";
     const updated = document.getElementById("updated");
     updated.textContent = "🗓️ آخر تحديث للأسعار: " + dateText;
@@ -389,12 +358,6 @@ function showProducts() {
 
 setProducts(products);
 
-document.getElementById("search").addEventListener("input", e => {
-    searchTerm = norm(e.target.value);
-    showProducts();
-});
-
-// ===== تفعيل زر التثبيت والتوجيه =====
 let deferredPrompt = null;
 const installBox = document.getElementById("install-box");
 const installBtn = document.getElementById("install-btn");
@@ -430,6 +393,6 @@ if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw.js");
 }
 </script>
-<script type="module" src="admin.js?v=5"></script>
+<script type="module" src="admin.js?v=9"></script>
 </body>
 </html>
