@@ -17,7 +17,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-4Y4Y0VEFJY');
 </script>
 <style>
@@ -34,8 +33,6 @@ body{
     display: flex;
     flex-direction: column;
 }
-
-/* مساحة علوية لشريط العنوان وزر التواصل */
 .top-header {
     background-color: #ffffff;
     padding: 15px 30px;
@@ -62,35 +59,28 @@ body{
     font-size: 15px;
     margin-right: auto;
 }
-
 .hero-section {
-        background: linear-gradient(135deg, #ff6600 0%, #ff8800 100%);
-        color: white;
-        text-align: center;
-        padding: 40px 20px 70px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border-radius: 0 0 50% 50% / 0 0 50px 50px;
+    background: linear-gradient(135deg, #ff6600 0%, #ff8800 100%);
+    color: white;
+    text-align: center;
+    padding: 40px 20px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 50% 50% / 0 0 50px 50px;
 }
 .hero-section h1 {
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 15px;
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 15px;
 }
-
-.hl {
-    color: #FFE14D;
-}
-
+.hl { color: #FFE14D; }
 .hero-section p {
-        font-size: 20px;
-        margin-bottom: 15px;
-        opacity: 0.95;
+    font-size: 20px;
+    margin-bottom: 15px;
+    opacity: 0.95;
 }
-
-/* تصميم صندوق زر تثبيت التطبيق الواضح والبارز */
 .install-container {
     display: none;
     margin-top: 20px;
@@ -136,8 +126,6 @@ body{
     font-weight: 700;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
-
-/* زرار واتساب ثابت في ركن الشاشة */
 .whatsapp-float {
     position: fixed;
     bottom: 20px;
@@ -152,39 +140,21 @@ body{
     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     z-index: 100;
 }
-
-.headr {
-    margin-bottom: 60px;
-}
-
-/* الفوتر */
+.headr { margin-bottom: 60px; }
 .site-footer {
     background-color: #2b211c;
     color: #e6dcd3;
     text-align: center;
-    padding: 20px 20px;
+    padding: 20px;
     font-size: 14px;
-    font-weight: 400;
     line-height: 1.7;
     margin-top: auto;
     border-top: 3px solid #ff6600;
 }
-.site-footer strong {
-    color: #ffffff;
-    font-weight: 600;
-}
-.site-footer p + p {
-    margin-top: 6px;
-    font-size: 15px;
-    color: #efe6de;
-}
-.site-footer .dev {
-    color: #ff8a3d;
-    font-weight: 700;
-}
-@media (max-width: 600px) {
-    .site-footer { padding-bottom: 80px; }
-}
+.site-footer strong { color: #ffffff; font-weight: 600; }
+.site-footer p + p { margin-top: 6px; font-size: 15px; color: #efe6de; }
+.site-footer .dev { color: #ff8a3d; font-weight: 700; }
+@media (max-width: 600px) { .site-footer { padding-bottom: 80px; } }
 
 .top-title {
     flex: 1;
@@ -202,7 +172,6 @@ body{
     .top-header .contact-btn { padding: 6px 12px; font-size: 13px; }
 }
 
-/* موقعنا ومواعيد العمل */
 .store {
     width: min(560px, 92%);
     margin: 0 auto 50px;
@@ -223,16 +192,12 @@ body{
     margin: 10px auto 24px;
 }
 .store-card {
-    display: grid;
-    grid-template-columns: 1fr;
     background: #ffffff;
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 4px 18px rgba(43,33,28,0.12);
 }
-.store-info {
-    padding: 26px 24px;
-}
+.store-info { padding: 26px 24px; }
 .status {
     display: inline-block;
     padding: 6px 20px;
@@ -261,33 +226,9 @@ body{
     justify-content: center;
     font-size: 19px;
 }
-.row .lbl {
-    font-size: 13px;
-    color: #8a7b72;
-}
-.row .val {
-    font-size: 16px;
-    font-weight: 600;
-    color: #2b211c;
-    line-height: 1.6;
-}
-.store-btns {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 6px;
-}
-.btn {
-    padding: 10px 22px;
-    border-radius: 24px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 15px;
-}
-.btn-main { background: #ff6600; color: #ffffff; }
-.btn-alt { border: 2px solid #19A7B9; color: #19A7B9; }
+.row .lbl { font-size: 13px; color: #8a7b72; }
+.row .val { font-size: 16px; font-weight: 600; color: #2b211c; line-height: 1.6; }
 
-/* مكان المنتجات والأقسام */
 .products {
     width: min(1000px, 92%);
     margin: 0 auto 50px;
@@ -307,31 +248,53 @@ body{
     border-radius: 2px;
     margin: 10px auto 20px;
 }
-
-/* أزرار الأقسام */
 .categories-filter {
     display: flex;
-    justify-content: center;
+    justify-content: safe center;
     gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 25px;
+    overflow-x: auto;
+    padding: 10px 4px 12px;
+    margin: 0 -4px 18px;
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: rgba(255, 249, 242, 0.95);
+    backdrop-filter: blur(6px);
+    scrollbar-width: none;
 }
+.categories-filter::-webkit-scrollbar { display: none; }
 .cat-btn {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 7px;
     background: #ffffff;
-    border: 2px solid #ff6600;
-    color: #ff6600;
-    padding: 8px 20px;
-    border-radius: 24px;
+    border: 2px solid #ffd9bf;
+    color: #5a3a24;
+    padding: 9px 16px;
+    border-radius: 999px;
     font-weight: 700;
     font-size: 15px;
-    cursor: pointer;
-    transition: all 0.2s;
     font-family: 'Cairo', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(43, 33, 28, 0.06);
 }
-.cat-btn.active, .cat-btn:hover {
-    background: #ff6600;
+.cat-btn.active {
+    background: linear-gradient(135deg, #ff6600, #ff8800);
+    border-color: #ff6600;
     color: #ffffff;
+    box-shadow: 0 6px 16px rgba(255, 102, 0, 0.35);
 }
+.cat-btn .cat-count {
+    font-size: 12px;
+    font-weight: 800;
+    background: #fff1e6;
+    color: #ff6600;
+    border-radius: 999px;
+    padding: 0 8px;
+    line-height: 20px;
+}
+.cat-btn.active .cat-count { background: rgba(255, 255, 255, 0.28); color: #ffffff; }
 
 .soon {
     text-align: center;
@@ -364,9 +327,7 @@ body{
     box-shadow: 0 2px 10px rgba(43,33,28,0.12);
     transition: transform 0.2s;
 }
-.card:hover {
-    transform: translateY(-4px);
-}
+.card:hover { transform: translateY(-4px); }
 .card img, .card .noimg {
     display: block;
     width: 100%;
@@ -404,45 +365,11 @@ body{
 @media (min-width: 768px) {
     .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
 }
-
-/* منتج غير متوفر */
-.card.soldout img, .card.soldout .noimg {
-    filter: grayscale(1);
-    opacity: 0.5;
-}
-.soldout-badge {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    aspect-ratio: 3 / 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-}
-.soldout-badge span {
-    background: #d62828;
-    color: #ffffff;
-    font-weight: 800;
-    font-size: 18px;
-    padding: 6px 22px;
-    border-radius: 8px;
-    border: 2px solid #ffffff;
-    transform: rotate(-8deg);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-}
-.price.gone {
-    background: #8d8d8d;
-    border-color: #cfcfcf;
-    text-decoration: line-through;
-}
 </style>
 </head>
 <body>
 <div class="headr">
 <header>
-
 <div class="top-header">
     <div class="brand">
         <img src="logo.png" alt="صن مول" class="logo">
@@ -455,13 +382,10 @@ body{
     <h1>مرحبا بكم فى <span class="hl">صن ماركت بورسعيد</span></h1>
     <p>كل ما تحتاج عروض مش هتلاقيها غير في صن ماركت بورسعيد</p>
     
-    <!-- زر تثبيت التطبيق الواضح والبارز -->
     <div id="install-box" class="install-container">
         <div class="install-title">💡 نزّل تطبيق الماركت على موبايلك لسهولة المتابعة!</div>
         <button id="install-btn" type="button">📲 ثبّت التطبيق الآن</button>
     </div>
-
-    <!-- توضيح لمستخدمي آيفون -->
     <p id="ios-hint">📌 لتثبيت التطبيق على آيفون: اضغط زر "المشاركة" في سفاري، ثم اختر "إضافة إلى الشاشة الرئيسية"</p>
 </section>
 </header>
@@ -469,13 +393,10 @@ body{
 
 <section class="products">
     <h2 class="products-title">منتجاتنا وعروضنا</h2>
-    
-    <!-- شريط الأقسام -->
     <div class="categories-filter" id="categories-filter"></div>
-
-    <p class="updated" id="updated"></p>
+    <p class="updated" id="updated">جاري جلب أحدث العروض...</p>
     <div class="grid" id="list"></div>
-    <p class="soon" id="soon">لا توجد منتجات في هذا القسم حالياً</p>
+    <p class="soon" id="soon">جاري تحميل المنتجات...</p>
 </section>
 
 <section class="store">
@@ -507,197 +428,197 @@ body{
     <p>تصميم وبرمجة: <strong class="dev">زياد سامى</strong></p>
 </footer>
 <a href="https://wa.me/201061820998?text=أهلاً، عاوز أسأل عن عروض صن مول" class="whatsapp-float" target="_blank" rel="noopener">واتساب 💬</a>
-<script>
-// ===== بيانات الماركت =====
-const shop = {
-    address: "ش طرح البحر 2، بجوار مسجد السلام، أمام جلال كافيه - بورسعيد",
-    lat: 31.269194,
-    lon: 32.312472,
-    phone: "01061820998",
-    openTime: "08:00",
-    closeTime: "23:30"
-};
 
-const toMin = t => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
-const fmt = t => {
-    let [h, m] = t.split(":").map(Number);
-    const p = h >= 12 ? "م" : "ص";
-    h = h % 12 || 12;
-    return h + ":" + String(m).padStart(2, "0") + " " + p;
-};
+<!-- ربط فايربيس وجلب المنتجات ديناميكياً -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
 
-function nowMinutes() {
-    const parts = new Intl.DateTimeFormat("en-GB", {
-        timeZone: "Africa/Cairo", hour: "2-digit", minute: "2-digit", hour12: false
-    }).formatToParts(new Date());
-    const h = Number(parts.find(x => x.type === "hour").value) % 24;
-    const m = Number(parts.find(x => x.type === "minute").value);
-    return h * 60 + m;
-}
+  const firebaseConfig = {
+    apiKey: "AIzaSyC9jimbxh2n-gBO_6RazEdDRDNNA1DtM60",
+    authDomain: "project-a52e3.firebaseapp.com",
+    databaseURL: "https://project-a52e3-default-rtdb.firebaseio.com",
+    projectId: "project-a52e3",
+    storageBucket: "project-a52e3.firebasestorage.app",
+    messagingSenderId: "30047291261",
+    appId: "1:30047291261:web:e8debae481e3acd2906e14"
+  };
 
-function isOpen() {
-    const n = nowMinutes(), o = toMin(shop.openTime), c = toMin(shop.closeTime);
-    return o < c ? (n >= o && n < c) : (n >= o || n < c);
-}
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
-function renderStatus() {
-    const el = document.getElementById("status");
-    const open = isOpen();
-    el.textContent = open ? "مفتوح الآن" : "مغلق الآن";
-    el.className = "status " + (open ? "open" : "closed");
-}
+  const shop = {
+      address: "ش طرح البحر 2، بجوار مسجد السلام، أمام جلال كافيه - بورسعيد",
+      lat: 31.269194,
+      lon: 32.312472,
+      phone: "01061820998",
+      openTime: "08:00",
+      closeTime: "23:30"
+  };
 
-document.getElementById("hours").textContent = "🕒 من " + fmt(shop.openTime) + " إلى " + fmt(shop.closeTime);
-document.getElementById("address").textContent = "📍 " + shop.address;
-document.getElementById("phone").innerHTML = '<a href="tel:+2' + shop.phone + '" style="color:inherit;text-decoration:none">' + shop.phone + '</a>';
-document.getElementById("dir-link").href = "https://www.google.com/maps?q=" + shop.lat + "," + shop.lon;
-renderStatus();
-setInterval(renderStatus, 60000);
+  const toMin = t => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
+  const fmt = t => {
+      let [h, m] = t.split(":").map(Number);
+      const p = h >= 12 ? "م" : "ص";
+      h = h % 12 || 12;
+      return h + ":" + String(m).padStart(2, "0") + " " + p;
+  };
 
-const lastUpdate = "2026-10-25";
-const dateText = new Date(lastUpdate + "T12:00:00")
-    .toLocaleDateString("ar-EG-u-nu-latn", { day: "numeric", month: "long", year: "numeric" });
+  function nowMinutes() {
+      const parts = new Intl.DateTimeFormat("en-GB", {
+          timeZone: "Africa/Cairo", hour: "2-digit", minute: "2-digit", hour12: false
+      }).formatToParts(new Date());
+      const h = Number(parts.find(x => x.type === "hour").value) % 24;
+      const m = Number(parts.find(x => x.type === "minute").value);
+      return h * 60 + m;
+  }
 
-// ===== قائمة المنتجات بالأسعار الصحيحة المطابقة لللافته =====
-const products = [
-    { name: "سمان رويال سوبر جامبو", price: 126, image: "dar.jpeg", cat: "دواجن" },
-    { name: "برجر دارا وزن", price: 229.95, image: "kofta.jpg", cat: "الحوم" },
-    { name: "سجق دارا وزن", price: 229.95, image: "sag.jpeg", cat: "الحوم" },
-    { name: "طبق كفتة وزن", price: 229.95, image: "bar.jpeg", cat: "الحوم" },
-    { name: "لحمه كتف برازيلى الكيلو", price: 330, image: "brazel.jpg", cat: "الحوم" },
-    { name: "لحمه موزه برازيلي الكيلو", price: 330, image: "moza.jpg", cat: "الحوم" },
-    { name: "لحمه كباب برازيلي الكيلو", price: 330, image: "kabab.jpg", cat: "الحوم" },
-    { name: "لحمه سن برازيلي الكيلو", price: 315, image: "san.jpg", cat: "الحوم" },
-    { name: "لحمه رقبه برازيلى الكيلو", price: 315, image: "rag.jpg", cat: "الحوم" },
-    { name: "مفروم برازيلي لحم صافى الكيلو", price: 315, image: "maf.jpg", cat: "الحوم" },
-    { name: "الوطنية دجاج 1000-1100 جم", price: 179.95, image: "rtg.jpg", cat: "دواجن" },
-    { name: "الوطنية دجاج 1100-1200 جم", price: 194.95, image: "rtg.jpg", cat: "دواجن" },
-    { name: "شهد دجاج مجمد 1100-1200 جم", price: 184.95, image: "wal.jpg", cat: "دواجن" },
-    { name: "صن تشكين دجاج مجمد 1100-1200 جم", price: 151.95, image: "rfgh.jpg", cat: "دواجن" },
-    { name: "قلية زيت 2.100 مل", price: 179.95, image: "kala.jpg", cat: "الزيوت والسمن" },
-    { name: "كريستال عباد 1.6 لتر", price: 173.95, image: "abad.jpeg", cat: "الزيوت والسمن" },
-    { name: "كريستال سمن اصفر 2 كيلو", price: 234.95, image: "kerstal.jpeg", cat: "الزيوت والسمن" },
-    { name: "موبي جبنة موزاريلا طبيعي مبشور 1 كيلو", price: 309.95, image: "uij.jpg", cat: "الأجبان" },
-    { name: "موبي جبنة موزاريلا انالوج مبشور 1 كيلو", price: 149.95, image: "zas.jpg", cat: "الأجبان" },
-    { name: "جيفريكس بامية صغيرة 400 جم", price: 59.95, image: "sak.jpeg", cat: "الخضروات المجمدة" },
-    { name: "جيفريكس ورق عنب 250 جم", price: 54.95, image: "ewe.jpeg", cat: "الخضروات المجمدة" },
-    { name: "جيفريكس بامية خصوصي 400 جم", price: 89.95, image: "lal.jpeg", cat: "الخضروات المجمدة" },
-    { name: "بسمة بسلة سادة 400 جم", price: 52.95, image: "poi.jpeg", cat: "الخضروات المجمدة" },
-    { name: "جيفريكس بسلة سادة 400 جم", price: 59.95, image: "swq.jpeg", cat: "الخضروات المجمدة" },
-    { name: "بسمة بسلة بالجزر 400 جم", price: 28.50, image: "psla.jpg", cat: "الخضروات المجمدة" },
-    { name: "بسمة شوربة خضار 400 جم", price: 20.25, image: "sarp.jpg", cat: "الخضروات المجمدة" },
-    { name: "بسمة ملوخية 400 جم", price: 17.75, image: "wre.jpg", cat: "الخضروات المجمدة" },
-    { name: "بسمة بامية زيرو 400 جم", price: 47.95, image: "pama.jpg", cat: "الخضروات المجمدة" },
-    { name: "جيفريكس خضار للشوربة 400 جم", price: 25.95, image: "hg.jpeg", cat: "الخضروات المجمدة" },
-    { name: "جيفريكس بسلة بالجزر 400 جم", price: 44.95, image: "yuyu.jpeg", cat: "الخضروات المجمدة" }
-];
+  function isOpen() {
+      const n = nowMinutes(), o = toMin(shop.openTime), c = toMin(shop.closeTime);
+      return o < c ? (n >= o && n < c) : (n >= o || n < c);
+  }
 
-function makeImage(p) {
-    const placeholder = () => {
-        const d = document.createElement("div");
-        d.className = "noimg";
-        d.textContent = "🛒";
-        return d;
-    };
-    if (!p.image) return placeholder();
-    const img = document.createElement("img");
-    img.src = p.image;
-    img.alt = p.name;
-    img.onerror = () => img.replaceWith(placeholder());
-    return img;
-}
+  function renderStatus() {
+      const el = document.getElementById("status");
+      const open = isOpen();
+      el.textContent = open ? "مفتوح الآن" : "مغلق الآن";
+      el.className = "status " + (open ? "open" : "closed");
+  }
 
-const categories = [...new Set(products.map(p => p.cat).filter(Boolean))];
-let currentCategory = categories[0] || "";
+  document.getElementById("hours").textContent = "🕒 من " + fmt(shop.openTime) + " إلى " + fmt(shop.closeTime);
+  document.getElementById("address").textContent = "📍 " + shop.address;
+  document.getElementById("phone").innerHTML = '<a href="tel:+2' + shop.phone + '" style="color:inherit;text-decoration:none">' + shop.phone + '</a>';
+  document.getElementById("dir-link").href = "https://www.google.com/maps?q=" + shop.lat + "," + shop.lon;
+  renderStatus();
+  setInterval(renderStatus, 60000);
 
-function showProducts() {
-    const box = document.getElementById("list");
-    const soon = document.getElementById("soon");
-    const filterBox = document.getElementById("categories-filter");
-    
-    if (filterBox.innerHTML === "") {
-        categories.forEach(cat => {
-            const btn = document.createElement("button");
-            btn.className = cat === currentCategory ? "cat-btn active" : "cat-btn";
-            btn.textContent = cat;
-            btn.onclick = () => {
-                currentCategory = cat;
-                document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
-                btn.classList.add("active");
-                showProducts();
-            };
-            filterBox.appendChild(btn);
+  let products = [];
+  let categories = [];
+  let currentCategory = "";
+
+  const catOrder = ["اللحوم", "دواجن", "الزيوت والسمن", "الأجبان", "الخضروات المجمدة"];
+  const catIcons = { "اللحوم": "🥩", "دواجن": "🍗", "الزيوت والسمن": "🫒", "الأجبان": "🧀", "الخضروات المجمدة": "🥦" };
+
+  async function fetchProducts() {
+    try {
+      const querySnapshot = await getDocs(collection(db, "products"));
+      products = [];
+      querySnapshot.forEach((docSnap) => {
+        const data = docSnap.data();
+        products.push({
+          name: data.title,
+          price: Number(data.price),
+          image: data.imageUrl,
+          cat: data.cat || "اللحوم"
         });
+      });
+
+      const found = [...new Set(products.map(p => p.cat).filter(Boolean))];
+      const rank = c => { const i = catOrder.indexOf(c); return i < 0 ? 99 : i; };
+      categories = found.sort((a, b) => rank(a) - rank(b));
+      if (!currentCategory && categories.length > 0) {
+        currentCategory = categories[0];
+      }
+
+      showProducts();
+    } catch (err) {
+      console.error("Error fetching products:", err);
+      document.getElementById("soon").textContent = "حدث خطأ في تحميل المنتجات";
     }
+  }
 
-    const filteredList = products.filter(p => p.cat === currentCategory);
+  function makeImage(p) {
+      const placeholder = () => {
+          const d = document.createElement("div");
+          d.className = "noimg";
+          d.textContent = "🛒";
+          return d;
+      };
+      if (!p.image) return placeholder();
+      const img = document.createElement("img");
+      img.src = p.image;
+      img.alt = p.name;
+      img.onerror = () => img.replaceWith(placeholder());
+      return img;
+  }
 
-    box.innerHTML = "";
-    filteredList.forEach(p => {
-        const card = document.createElement("div");
-        card.className = p.soldOut ? "card soldout" : "card";
-        card.appendChild(makeImage(p));
-        if (p.soldOut) {
-            const badge = document.createElement("div");
-            badge.className = "soldout-badge";
-            badge.innerHTML = "<span>غير متوفر</span>";
-            card.appendChild(badge);
-        }
-        if (!isNaN(p.price)) {
-            const price = document.createElement("span");
-            price.className = p.soldOut ? "price gone" : "price";
-            price.textContent = p.price + " جنيه";
-            card.appendChild(price);
-        }
-        const title = document.createElement("h3");
-        title.textContent = p.name;
-        card.appendChild(title);
-        box.appendChild(card);
-    });
+  function showProducts() {
+      const box = document.getElementById("list");
+      const soon = document.getElementById("soon");
+      const filterBox = document.getElementById("categories-filter");
+      
+      filterBox.innerHTML = "";
+      categories.forEach(cat => {
+          const btn = document.createElement("button");
+          btn.className = cat === currentCategory ? "cat-btn active" : "cat-btn";
+          const count = products.filter(p => p.cat === cat).length;
+          btn.innerHTML = '<span class="cat-ico">' + (catIcons[cat] || "🛍️") + '</span><span>' + cat + '</span><span class="cat-count">' + count + '</span>';
+          btn.onclick = () => {
+              currentCategory = cat;
+              document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
+              btn.classList.add("active");
+              btn.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+              showProducts();
+          };
+          filterBox.appendChild(btn);
+      });
 
-    soon.style.display = filteredList.length ? "none" : "block";
-    const updated = document.getElementById("updated");
-    updated.textContent = "🗓️ آخر تحديث للأسعار: " + dateText;
-    updated.style.display = filteredList.length ? "block" : "none";
-}
+      const filteredList = products.filter(p => p.cat === currentCategory);
 
-showProducts();
+      box.innerHTML = "";
+      filteredList.forEach(p => {
+          const card = document.createElement("div");
+          card.className = "card";
+          card.appendChild(makeImage(p));
+          if (!isNaN(p.price)) {
+              const price = document.createElement("span");
+              price.className = "price";
+              price.textContent = p.price + " جنيه";
+              card.appendChild(price);
+          }
+          const title = document.createElement("h3");
+          title.textContent = p.name;
+          card.appendChild(title);
+          box.appendChild(card);
+      });
 
-// ===== تفعيل زر التثبيت والتوجيه =====
-let deferredPrompt = null;
-const installBox = document.getElementById("install-box");
-const installBtn = document.getElementById("install-btn");
-const iosHint = document.getElementById("ios-hint");
-const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
+      soon.style.display = filteredList.length ? "none" : "block";
+      const updated = document.getElementById("updated");
+      const dateText = new Date().toLocaleDateString("ar-EG-u-nu-latn", { day: "numeric", month: "long", year: "numeric" });
+      updated.textContent = "🗓️ آخر تحديث: " + dateText;
+      updated.style.display = filteredList.length ? "block" : "none";
+  }
 
-window.addEventListener("beforeinstallprompt", e => {
-    e.preventDefault();
-    deferredPrompt = e;
-    if (!isStandalone) {
-        installBox.style.display = "block";
-    }
-});
+  fetchProducts();
 
-installBtn.addEventListener("click", async () => {
-    if (!deferredPrompt) return;
-    deferredPrompt.prompt();
-    await deferredPrompt.userChoice;
-    deferredPrompt = null;
-    installBox.style.display = "none";
-});
+  let deferredPrompt = null;
+  const installBox = document.getElementById("install-box");
+  const installBtn = document.getElementById("install-btn");
+  const iosHint = document.getElementById("ios-hint");
+  const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
 
-window.addEventListener("appinstalled", () => {
-    installBox.style.display = "none";
-});
+  window.addEventListener("beforeinstallprompt", e => {
+      e.preventDefault();
+      deferredPrompt = e;
+      if (!isStandalone) { installBox.style.display = "block"; }
+  });
 
-if (/iphone|ipad|ipod/i.test(navigator.userAgent) && !isStandalone) {
-    installBox.style.display = "block";
-    iosHint.style.display = "block";
-}
+  installBtn.addEventListener("click", async () => {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      deferredPrompt = null;
+      installBox.style.display = "none";
+  });
 
-if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js");
-}
+  if (/iphone|ipad|ipod/i.test(navigator.userAgent) && !isStandalone) {
+      installBox.style.display = "block";
+      iosHint.style.display = "block";
+  }
+
+  if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js");
+  }
 </script>
 </body>
 </html>
