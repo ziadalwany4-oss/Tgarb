@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
-import { getFirestore, collection, onSnapshot, doc, updateDoc, addDoc, deleteDoc, deleteField } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
+import { getFirestore, collection, onSnapshot, doc, updateDoc, addDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
 import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
 
 const app = initializeApp({
@@ -15,7 +15,7 @@ const auth = getAuth(app);
 
 let dbEmpty = false;
 
-// ===== التنسيق =====
+// ===== التنسيق والنافذة الكبيرة =====
 const style = document.createElement("style");
 style.textContent = `
 .adm-login{margin-right:auto;background:#ff6600;color:#fff;border:none;padding:8px 20px;border-radius:20px;font-family:'Cairo',sans-serif;font-weight:700;font-size:15px;cursor:pointer;white-space:nowrap;transition:background .2s}
@@ -59,6 +59,8 @@ style.textContent = `
 .editor .del{background:#fff;color:#d62828;border:2px solid #d62828;border-radius:20px;padding:7px;font-weight:800;font-size:14px;font-family:'Cairo',sans-serif;cursor:pointer}
 .editor .del:hover{background:#d62828;color:#fff}
 .editor .del:disabled{opacity:.6}
+
+/* تصميم النافذة الكبيرة المنبثقة لبويا المدير */
 .adm-big{position:fixed;inset:0;background:rgba(43,33,28,.6);display:none;align-items:center;justify-content:center;z-index:400;padding:16px}
 .adm-big.show{display:flex}
 .adm-big-card{position:relative;background:#fff;border-radius:28px;padding:46px 34px 36px;width:min(440px,100%);text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4);animation:admPop .35s cubic-bezier(.2,1.4,.4,1)}
@@ -73,6 +75,7 @@ style.textContent = `
 @keyframes admDraw{to{stroke-dashoffset:0}}
 .adm-big-txt{font-size:28px;font-weight:800;color:#2b211c;line-height:1.5}
 @media (max-width:600px){.adm-big-txt{font-size:23px}.adm-big-ico{width:110px;height:110px}.adm-big-ico svg{width:70px;height:70px}}
+
 .adm-toast{position:fixed;top:16px;left:50%;transform:translateX(-50%);background:#1e9e4a;color:#fff;padding:10px 22px;border-radius:24px;font-weight:800;z-index:300;box-shadow:0 4px 14px rgba(0,0,0,.3)}
 .adm-toast.bad{background:#d62828}
 `;
@@ -138,7 +141,6 @@ addOverlay.innerHTML = `
 </div>`;
 document.body.appendChild(addOverlay);
 
-
 const $ = id => document.getElementById(id);
 function openPanel() { $("adm-err").textContent = ""; panel.classList.add("show"); backdrop.classList.add("show"); }
 function closePanel() { panel.classList.remove("show"); backdrop.classList.remove("show"); }
@@ -165,7 +167,6 @@ async function doLogin() {
 $("adm-go").onclick = doLogin;
 $("adm-pass").addEventListener("keydown", e => { if (e.key === "Enter") doLogin(); });
 
-// بيصغّر الصورة ويحوّلها JPEG صغيرة (حوالي 30-80 كيلو) عشان تتخزن في Firestore
 function fileToDataUrl(file) {
     return new Promise((resolve, reject) => {
         const url = URL.createObjectURL(file);
@@ -240,6 +241,7 @@ $("add-go").onclick = async () => {
     btn.disabled = false;
 };
 
+// بناء الكارت الكبير للرسائل
 const big = document.createElement("div");
 big.className = "adm-big";
 big.innerHTML = `
@@ -290,8 +292,6 @@ window.__editor = p => {
       <input type="text" class="e-name">
       <label>السعر (جنيه)</label>
       <input type="number" step="0.01" inputmode="decimal" class="e-price">
-      <label>السعر قبل الخصم (اختياري - لو فيه عرض)</label>
-      <input type="number" step="0.01" inputmode="decimal" class="e-old">
       <label>القسم</label>
       <input type="text" class="e-cat" list="cat-list">
       <label>تغيير الصورة (اختياري)</label>
@@ -302,7 +302,6 @@ window.__editor = p => {
     box.querySelector(".e-name").value = p.name || "";
     box.querySelector(".e-price").value = p.price ?? "";
     box.querySelector(".e-cat").value = p.cat || "";
-    box.querySelector(".e-old").value = p.oldPrice ?? "";
     box.querySelector(".e-sold").checked = !!p.soldOut;
     let newImg = "";
     box.querySelector(".e-file").onchange = async e => {
@@ -325,13 +324,6 @@ window.__editor = p => {
                 soldOut: box.querySelector(".e-sold").checked,
                 updatedAt: Date.now()
             };
-            const oldRaw = box.querySelector(".e-old").value.trim();
-            if (oldRaw === "") upd.oldPrice = deleteField();
-            else {
-                const oldPrice = Number(toEn(oldRaw));
-                if (isNaN(oldPrice) || oldPrice <= price) { toast("السعر قبل الخصم لازم يكون أكبر من السعر الحالي", true); btn.disabled = false; return; }
-                upd.oldPrice = oldPrice;
-            }
             if (newImg) upd.imageData = newImg;
             await updateDoc(doc(db, "products", p.id), upd);
             toast("تم الحفظ ✅");
@@ -357,7 +349,6 @@ window.__editor = p => {
     return box;
 };
 
-// ===== قراءة المنتجات من Firestore =====
 onSnapshot(collection(db, "products"), snap => {
     const list = snap.docs.map(d => ({ id: d.id, ...d.data() }))
         .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
