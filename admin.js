@@ -15,12 +15,12 @@ const auth = getAuth(app);
 
 let dbEmpty = false;
 
-// ===== التنسيق وزر الدخول الواضح =====
+// ===== التنسيق وزر الدخول الأصلي =====
 const style = document.createElement("style");
 style.textContent = `
-.adm-login{background:linear-gradient(135deg, #ff6600, #ff8800);color:#fff;border:none;padding:9px 18px;border-radius:20px;font-family:'Cairo',sans-serif;font-weight:800;font-size:14px;cursor:pointer;white-space:nowrap;box-shadow:0 4px 12px rgba(255,102,0,0.3);transition:transform .2s, background .2s;margin-right:auto;display:flex;align-items:center;gap:6px;}
-.adm-login:hover{transform:translateY(-2px);background:linear-gradient(135deg, #e65c00, #e67700)}
-@media (max-width:600px){.adm-login{padding:7px 12px;font-size:12px}}
+.adm-login{margin-right:auto;background:#ff6600;color:#fff;border:none;padding:8px 20px;border-radius:20px;font-family:'Cairo',sans-serif;font-weight:700;font-size:15px;cursor:pointer;white-space:nowrap;transition:background .2s}
+.adm-login:hover{background:#e65c00}
+@media (max-width:600px){.adm-login{padding:6px 12px;font-size:13px}}
 
 .adm-backdrop{position:fixed;inset:0;background:rgba(43,33,28,.5);opacity:0;pointer-events:none;transition:opacity .25s;z-index:210}
 .adm-backdrop.show{opacity:1;pointer-events:auto}
@@ -63,10 +63,31 @@ style.textContent = `
 .adm-toast{position:fixed;top:16px;left:50%;transform:translateX(-50%);background:#1e9e4a;color:#fff;padding:10px 22px;border-radius:24px;font-weight:800;z-index:300;box-shadow:0 4px 14px rgba(0,0,0,.3)}
 .adm-toast.bad{background:#d62828}
 
-/* ===== رسائل التنبيه الفخمة للمدير ===== */
+/* ===== رسائل التنبيه الكبيرة والفاخرة للمدير ===== */
 .boss-modal-overlay {
     position: fixed; inset: 0; background: rgba(0,0,0,0.65);
     backdrop-filter: blur(4px); z-index: 1000; display: flex;
     align-items: center; justify-content: center; padding: 20px;
     opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
 }
+.boss-modal-overlay.show { opacity: 1; pointer-events: auto; }
+.boss-modal-card {
+    background: #ffffff; border-radius: 24px; width: min(420px, 92vw);
+    padding: 30px 24px; text-align: center; position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3); transform: scale(0.8);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.boss-modal-overlay.show .boss-modal-card { transform: scale(1); }
+.boss-close-btn {
+    position: absolute; top: 15px; left: 15px; background: #f0f0f0;
+    border: none; width: 36px; height: 36px; border-radius: 50%;
+    font-size: 18px; font-weight: bold; color: #555; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, transform 0.1s;
+}
+.boss-close-btn:hover { background: #e0e0e0; transform: scale(1.1); }
+.boss-icon-wrapper {
+    width: 90px; height: 90px; border-radius: 50%; margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center; font-size: 48px;
+}
+.boss-icon-wrapper.login { background: #e6f9
