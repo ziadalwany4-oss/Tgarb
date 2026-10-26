@@ -10,429 +10,119 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="صن مول">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-<meta name="google-site-verification" content="c1f54c6NEsWV5FpHwbb8iN7rLEUSKM_YwxwCIt5o8yI" />
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4Y4Y0VEFJY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-4Y4Y0VEFJY');
-</script>
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Cairo', sans-serif;
-}
-body{
-    background-color:#fff9f2;
-    color:#333;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-.top-header {
-    background-color: #ffffff;
-    padding: 15px 30px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    border-bottom: 4px solid #19A7B9;
-}
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-.logo {
-    height: 56px;
-}
-.top-header .contact-btn {
-    background-color: #ff6600;
-    color: #ffffff;
-    padding: 8px 20px;
-    text-decoration: none;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 15px;
-    margin-right: auto;
-}
-.hero-section {
-    background: linear-gradient(135deg, #ff6600 0%, #ff8800 100%);
-    color: white;
-    text-align: center;
-    padding: 40px 20px 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0 0 50% 50% / 0 0 50px 50px;
-}
-.hero-section h1 {
-    font-size: 42px;
-    font-weight: 800;
-    margin-bottom: 15px;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+body { background-color:#fff9f2; color:#333; min-height: 100vh; display: flex; flex-direction: column; }
+.top-header { background-color: #ffffff; padding: 15px 30px; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-bottom: 4px solid #19A7B9; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.logo { height: 56px; }
+.top-header .contact-btn { background-color: #ff6600; color: #ffffff; padding: 8px 20px; text-decoration: none; border-radius: 20px; font-weight: 700; font-size: 15px; margin-right: auto; }
+.admin-login-btn { background-color: #2b211c; color: #FFE14D; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 14px; margin-left: 10px; cursor: pointer; border: none; }
+.hero-section { background: linear-gradient(135deg, #ff6600 0%, #ff8800 100%); color: white; text-align: center; padding: 40px 20px 70px; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 0 0 50% 50% / 0 0 50px 50px; }
+.hero-section h1 { font-size: 42px; font-weight: 800; margin-bottom: 15px; }
 .hl { color: #FFE14D; }
-.hero-section p {
-    font-size: 20px;
-    margin-bottom: 15px;
-    opacity: 0.95;
-}
-.install-container {
-    display: none;
-    margin-top: 20px;
-    background: rgba(0, 0, 0, 0.15);
-    padding: 15px 20px;
-    border-radius: 20px;
-    border: 2px dashed #FFE14D;
-    text-align: center;
-    width: min(90%, 400px);
-}
-.install-title {
-    font-size: 16px;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 10px;
-}
-#install-btn {
-    background: #FFE14D;
-    color: #2b211c;
-    border: none;
-    padding: 14px 30px;
-    border-radius: 30px;
-    font-family: 'Cairo', sans-serif;
-    font-weight: 800;
-    font-size: 18px;
-    cursor: pointer;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    width: 100%;
-    transition: all 0.3s ease;
-}
-#install-btn:hover {
-    background: #ffcc00;
-    transform: translateY(-2px);
-}
-#ios-hint {
-    display: none;
-    margin-top: 12px;
-    font-size: 14px;
-    background: #ffffff;
-    color: #2b211c;
-    padding: 10px 14px;
-    border-radius: 12px;
-    font-weight: 700;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background-color: #25D366;
-    color: #ffffff;
-    padding: 12px 20px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    z-index: 100;
-}
-.headr { margin-bottom: 60px; }
-.site-footer {
-    background-color: #2b211c;
-    color: #e6dcd3;
-    text-align: center;
-    padding: 20px;
-    font-size: 14px;
-    line-height: 1.7;
-    margin-top: auto;
-    border-top: 3px solid #ff6600;
-}
-.site-footer strong { color: #ffffff; font-weight: 600; }
-.site-footer p + p { margin-top: 6px; font-size: 15px; color: #efe6de; }
-.site-footer .dev { color: #ff8a3d; font-weight: 700; }
-@media (max-width: 600px) { .site-footer { padding-bottom: 80px; } }
+.hero-section p { font-size: 20px; margin-bottom: 15px; opacity: 0.95; }
+.whatsapp-float { position: fixed; bottom: 20px; left: 20px; background-color: #25D366; color: #ffffff; padding: 12px 20px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.25); z-index: 100; }
+.site-footer { background-color: #2b211c; color: #e6dcd3; text-align: center; padding: 20px; font-size: 14px; line-height: 1.7; margin-top: auto; border-top: 3px solid #ff6600; }
+.top-title { flex: 1; text-align: center; font-size: clamp(17px, 4.6vw, 28px); font-weight: 800; margin: 0 8px; }
+.t-orange { color: #ff6600; } .t-teal { color: #19A7B9; }
+.store { width: min(560px, 92%); margin: 0 auto 50px; }
+.store-title { text-align: center; font-size: 28px; font-weight: 800; color: #2b211c; }
+.store-card { background: #ffffff; border-radius: 18px; overflow: hidden; box-shadow: 0 4px 18px rgba(43,33,28,0.12); padding: 20px; }
+.status { display: inline-block; padding: 6px 20px; border-radius: 20px; color: #ffffff; font-weight: 800; font-size: 16px; margin-bottom: 18px; }
+.status.open { background: #1e9e4a; } .status.closed { background: #d62828; }
+.products { width: min(1000px, 92%); margin: 0 auto 50px; }
+.products-title { text-align: center; font-size: 28px; font-weight: 800; color: #2b211c; margin-bottom: 15px; }
+.categories-filter { display: flex; justify-content: safe center; gap: 10px; overflow-x: auto; padding: 10px 4px 12px; margin-bottom: 18px; position: sticky; top: 0; z-index: 30; background: rgba(255, 249, 242, 0.95); }
+.cat-btn { background: #ffffff; border: 2px solid #ffd9bf; color: #5a3a24; padding: 9px 16px; border-radius: 999px; font-weight: 700; font-size: 15px; cursor: pointer; }
+.cat-btn.active { background: linear-gradient(135deg, #ff6600, #ff8800); border-color: #ff6600; color: #ffffff; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+.card { background: #ffffff; border-radius: 14px; overflow: hidden; position: relative; box-shadow: 0 2px 10px rgba(43,33,28,0.12); }
+.card img, .card .noimg { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.card .noimg { background: #fff1e6; display: flex; align-items: center; justify-content: center; font-size: 40px; }
+.card h3 { margin: 0; padding: 12px; font-size: 16px; font-weight: 700; color: #2b211c; text-align: center; border-top: 3px solid #ff6600; }
+.price { position: absolute; top: 8px; right: 8px; background: #d62828; color: #ffffff; border: 2px solid #ffd21f; border-radius: 20px; padding: 3px 12px; font-weight: 800; font-size: 17px; }
 
-.top-title {
-    flex: 1;
-    text-align: center;
-    font-size: clamp(17px, 4.6vw, 28px);
-    font-weight: 800;
-    margin: 0 8px;
-    line-height: 1.3;
-}
-.t-orange { color: #ff6600; }
-.t-teal { color: #19A7B9; }
-@media (max-width: 600px) {
-    .top-header { padding: 10px 12px; }
-    .logo { height: 44px; }
-    .top-header .contact-btn { padding: 6px 12px; font-size: 13px; }
-}
-
-.store {
-    width: min(560px, 92%);
-    margin: 0 auto 50px;
-}
-.store-title {
-    text-align: center;
-    font-size: 28px;
-    font-weight: 800;
-    color: #2b211c;
-}
-.store-title::after {
-    content: "";
-    display: block;
-    width: 70px;
-    height: 4px;
-    background: #ff6600;
-    border-radius: 2px;
-    margin: 10px auto 24px;
-}
-.store-card {
-    background: #ffffff;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 4px 18px rgba(43,33,28,0.12);
-}
-.store-info { padding: 26px 24px; }
-.status {
-    display: inline-block;
-    padding: 6px 20px;
-    border-radius: 20px;
-    color: #ffffff;
-    font-weight: 800;
-    font-size: 16px;
-    margin-bottom: 18px;
-}
-.status.open { background: #1e9e4a; }
-.status.closed { background: #d62828; }
-.row {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    margin-bottom: 18px;
-}
-.row .ico {
-    flex: 0 0 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: #fff1e6;
-    color: #ff6600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 19px;
-}
-.row .lbl { font-size: 13px; color: #8a7b72; }
-.row .val { font-size: 16px; font-weight: 600; color: #2b211c; line-height: 1.6; }
-
-.products {
-    width: min(1000px, 92%);
-    margin: 0 auto 50px;
-}
-.products-title {
-    text-align: center;
-    font-size: 28px;
-    font-weight: 800;
-    color: #2b211c;
-}
-.products-title::after {
-    content: "";
-    display: block;
-    width: 70px;
-    height: 4px;
-    background: #ff6600;
-    border-radius: 2px;
-    margin: 10px auto 20px;
-}
-.categories-filter {
-    display: flex;
-    justify-content: safe center;
-    gap: 10px;
-    overflow-x: auto;
-    padding: 10px 4px 12px;
-    margin: 0 -4px 18px;
-    position: sticky;
-    top: 0;
-    z-index: 30;
-    background: rgba(255, 249, 242, 0.95);
-    backdrop-filter: blur(6px);
-    scrollbar-width: none;
-}
-.categories-filter::-webkit-scrollbar { display: none; }
-.cat-btn {
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    background: #ffffff;
-    border: 2px solid #ffd9bf;
-    color: #5a3a24;
-    padding: 9px 16px;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 15px;
-    font-family: 'Cairo', sans-serif;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(43, 33, 28, 0.06);
-}
-.cat-btn.active {
-    background: linear-gradient(135deg, #ff6600, #ff8800);
-    border-color: #ff6600;
-    color: #ffffff;
-    box-shadow: 0 6px 16px rgba(255, 102, 0, 0.35);
-}
-.cat-btn .cat-count {
-    font-size: 12px;
-    font-weight: 800;
-    background: #fff1e6;
-    color: #ff6600;
-    border-radius: 999px;
-    padding: 0 8px;
-    line-height: 20px;
-}
-.cat-btn.active .cat-count { background: rgba(255, 255, 255, 0.28); color: #ffffff; }
-
-.soon {
-    text-align: center;
-    color: #8a7b72;
-    font-size: 16px;
-    padding: 20px 0;
-}
-.updated {
-    display: none;
-    width: fit-content;
-    margin: 0 auto 20px;
-    padding: 6px 16px;
-    background: #fff1e6;
-    color: #2b211c;
-    border: 1.5px solid #ff6600;
-    border-radius: 20px;
-    font-size: 15px;
-    font-weight: 700;
-}
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 14px;
-}
-.card {
-    background: #ffffff;
-    border-radius: 14px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 2px 10px rgba(43,33,28,0.12);
-    transition: transform 0.2s;
-}
-.card:hover { transform: translateY(-4px); }
-.card img, .card .noimg {
-    display: block;
-    width: 100%;
-    aspect-ratio: 3 / 2;
-    object-fit: cover;
-}
-.card .noimg {
-    background: #fff1e6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
-}
-.card h3 {
-    margin: 0;
-    padding: 12px 12px 16px;
-    font-size: 16px;
-    font-weight: 700;
-    color: #2b211c;
-    text-align: center;
-    border-top: 3px solid #ff6600;
-}
-.price {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background: #d62828;
-    color: #ffffff;
-    border: 2px solid #ffd21f;
-    border-radius: 20px;
-    padding: 3px 12px;
-    font-weight: 800;
-    font-size: 17px;
-}
-@media (min-width: 768px) {
-    .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
-}
+/* نافذة إدارة الأدمن المدمجة (Modal) */
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; }
+.modal-box { background: white; padding: 25px; border-radius: 16px; width: min(90%, 450px); max-height: 85vh; overflow-y: auto; }
+.modal-box h3 { margin-bottom: 15px; color: #ff6600; }
+.form-control { width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 8px; font-family: 'Cairo'; }
+.btn-submit { background: #ff6600; color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; font-weight: bold; cursor: pointer; }
+.btn-close { background: #888; color: white; border: none; padding: 8px; border-radius: 8px; width: 100%; margin-top: 10px; cursor: pointer; }
+.admin-card-actions { display: flex; gap: 5px; padding: 8px; background: #f9f9f9; border-top: 1px solid #eee; }
+.btn-edit { background: #ffc107; border: none; padding: 4px 8px; border-radius: 4px; font-weight: bold; cursor: pointer; flex: 1; }
+.btn-del { background: #d62828; color: white; border: none; padding: 4px 8px; border-radius: 4px; font-weight: bold; cursor: pointer; flex: 1; }
 </style>
 </head>
 <body>
-<div class="headr">
+
 <header>
 <div class="top-header">
     <div class="brand">
         <img src="logo.png" alt="صن مول" class="logo">
     </div>
     <h2 class="top-title"><span class="t-orange">صن ماركت</span> <span class="t-teal">بورسعيد</span></h2>
-    <a href="https://wa.me/201061820998?text=أهلاً، عاوز أسأل عن عروض صن مول" class="contact-btn" target="_blank" rel="noopener">تواصل معنا</a>
+    <a href="https://wa.me/201061820998" class="contact-btn" target="_blank">تواصل معنا</a>
+    <button class="admin-admin-login-btn admin-login-btn" id="openAdminBtn">لوحة الإدارة 🔑</button>
 </div>
 
 <section class="hero-section">
     <h1>مرحبا بكم فى <span class="hl">صن ماركت بورسعيد</span></h1>
     <p>كل ما تحتاج عروض مش هتلاقيها غير في صن ماركت بورسعيد</p>
-    
-    <div id="install-box" class="install-container">
-        <div class="install-title">💡 نزّل تطبيق الماركت على موبايلك لسهولة المتابعة!</div>
-        <button id="install-btn" type="button">📲 ثبّت التطبيق الآن</button>
-    </div>
-    <p id="ios-hint">📌 لتثبيت التطبيق على آيفون: اضغط زر "المشاركة" في سفاري، ثم اختر "إضافة إلى الشاشة الرئيسية"</p>
 </section>
 </header>
-</div>
 
 <section class="products">
     <h2 class="products-title">منتجاتنا وعروضنا</h2>
     <div class="categories-filter" id="categories-filter"></div>
-    <p class="updated" id="updated">جاري جلب أحدث العروض...</p>
     <div class="grid" id="list"></div>
-    <p class="soon" id="soon">جاري تحميل المنتجات...</p>
-</section>
-
-<section class="store">
-    <h2 class="store-title">موقعنا ومواعيد العمل</h2>
-    <div class="store-card">
-        <div class="store-info">
-            <div id="status" class="status">...</div>
-            <div class="row">
-                <div class="ico">📍</div>
-                <div><div class="lbl">العنوان</div><div class="val" id="address"></div></div>
-            </div>
-            <div class="row">
-                <div class="ico">🕒</div>
-                <div><div class="lbl">مواعيد العمل</div><div class="val" id="hours"></div></div>
-            </div>
-            <div class="row">
-                <div class="ico">📞</div>
-                <div><div class="lbl">للتواصل</div><div class="val" id="phone" dir="ltr" style="text-align:right"></div></div>
-            </div>
-            <div class="store-btns">
-                <a id="dir-link" class="btn btn-main" href="#" target="_blank" rel="noopener">عرض الموقع على الخريطة</a>
-            </div>
-        </div>
-    </div>
+    <p style="text-align:center; padding:20px;" id="soon">جاري تحميل المنتجات...</p>
 </section>
 
 <footer class="site-footer">
-    <p>© 2026 <strong>صن ماركت بورسعيد</strong>. جميع الحقوق محفوظة.</p>
-    <p>تصميم وبرمجة: <strong class="dev">زياد سامى</strong></p>
+    <p>© 2026 <strong>صن ماركت بورسعيد</strong>. تصميم: <strong style="color:#ff8a3d">زياد سامى</strong></p>
 </footer>
-<a href="https://wa.me/201061820998?text=أهلاً، عاوز أسأل عن عروض صن مول" class="whatsapp-float" target="_blank" rel="noopener">واتساب 💬</a>
 
-<!-- ربط فايربيس وجلب المنتجات ديناميكياً -->
+<!-- نافذة تسجيل الدخول وإضافة المنتجات -->
+<div class="modal-overlay" id="adminModal">
+  <div class="modal-box">
+    
+    <!-- شاشة تسجيل الدخول -->
+    <div id="loginView">
+      <h3>تسجيل دخول الإدارة</h3>
+      <input type="email" id="email" class="form-control" placeholder="البريد الإلكتروني">
+      <input type="password" id="password" class="form-control" placeholder="كلمة السر">
+      <button class="btn-submit" id="loginBtn">دخول</button>
+      <p id="loginError" style="color:red; margin-top:8px;"></p>
+    </div>
+
+    <!-- شاشة الإضافة والتعديل -->
+    <div id="adminView" style="display:none;">
+      <h3>إضافة / تعديل منتج</h3>
+      <input type="hidden" id="editDocId">
+      <input type="text" id="pTitle" class="form-control" placeholder="اسم المنتج">
+      <input type="number" id="pPrice" class="form-control" placeholder="السعر (جنيه)">
+      <select id="pCat" class="form-control">
+        <option value="اللحوم">اللحوم</option>
+        <option value="دواجن">دواجن</option>
+        <option value="الزيوت والسمن">الزيوت والسمن</option>
+        <option value="الأجبان">الأجبان</option>
+        <option value="الخضروات المجمدة">الخضروات المجمدة</option>
+      </select>
+      <input type="text" id="pImg" class="form-control" placeholder="اسم ملف الصورة (مثل: srft.jpeg)">
+      <button class="btn-submit" id="saveProductBtn">حفظ المنتج</button>
+      <button class="btn-submit" id="logoutBtn" style="background:#555; margin-top:10px;">تسجيل الخروج</button>
+    </div>
+
+    <button class="btn-close" id="closeAdminBtn">إغلاق النافذة</button>
+  </div>
+</div>
+
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
-  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
+  import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
+  import { getFirestore, collection, getDocs, addDoc, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyC9jimbxh2n-gBO_6RazEdDRDNNA1DtM60",
@@ -445,179 +135,130 @@ body{
   };
 
   const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
   const db = getFirestore(app);
 
-  const shop = {
-      address: "ش طرح البحر 2، بجوار مسجد السلام، أمام جلال كافيه - بورسعيد",
-      lat: 31.269194,
-      lon: 32.312472,
-      phone: "01061820998",
-      openTime: "08:00",
-      closeTime: "23:30"
-  };
-
-  const toMin = t => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
-  const fmt = t => {
-      let [h, m] = t.split(":").map(Number);
-      const p = h >= 12 ? "م" : "ص";
-      h = h % 12 || 12;
-      return h + ":" + String(m).padStart(2, "0") + " " + p;
-  };
-
-  function nowMinutes() {
-      const parts = new Intl.DateTimeFormat("en-GB", {
-          timeZone: "Africa/Cairo", hour: "2-digit", minute: "2-digit", hour12: false
-      }).formatToParts(new Date());
-      const h = Number(parts.find(x => x.type === "hour").value) % 24;
-      const m = Number(parts.find(x => x.type === "minute").value);
-      return h * 60 + m;
-  }
-
-  function isOpen() {
-      const n = nowMinutes(), o = toMin(shop.openTime), c = toMin(shop.closeTime);
-      return o < c ? (n >= o && n < c) : (n >= o || n < c);
-  }
-
-  function renderStatus() {
-      const el = document.getElementById("status");
-      const open = isOpen();
-      el.textContent = open ? "مفتوح الآن" : "مغلق الآن";
-      el.className = "status " + (open ? "open" : "closed");
-  }
-
-  document.getElementById("hours").textContent = "🕒 من " + fmt(shop.openTime) + " إلى " + fmt(shop.closeTime);
-  document.getElementById("address").textContent = "📍 " + shop.address;
-  document.getElementById("phone").innerHTML = '<a href="tel:+2' + shop.phone + '" style="color:inherit;text-decoration:none">' + shop.phone + '</a>';
-  document.getElementById("dir-link").href = "https://www.google.com/maps?q=" + shop.lat + "," + shop.lon;
-  renderStatus();
-  setInterval(renderStatus, 60000);
-
   let products = [];
-  let categories = [];
-  let currentCategory = "";
+  let currentUser = null;
 
-  const catOrder = ["اللحوم", "دواجن", "الزيوت والسمن", "الأجبان", "الخضروات المجمدة"];
-  const catIcons = { "اللحوم": "🥩", "دواجن": "🍗", "الزيوت والسمن": "🫒", "الأجبان": "🧀", "الخضروات المجمدة": "🥦" };
+  // فتح وإغلاق النافذة
+  document.getElementById('openAdminBtn').onclick = () => document.getElementById('adminModal').style.display = 'flex';
+  document.getElementById('closeAdminBtn').onclick = () => document.getElementById('adminModal').style.display = 'none';
 
+  // التحقق من الأدمن
+  onAuthStateChanged(auth, (user) => {
+    currentUser = user;
+    if (user) {
+      document.getElementById('loginView').style.display = 'none';
+      document.getElementById('adminView').style.display = 'block';
+    } else {
+      document.getElementById('loginView').style.display = 'block';
+      document.getElementById('adminView').style.display = 'none';
+    }
+    fetchProducts();
+  });
+
+  // تسجيل الدخول
+  document.getElementById('loginBtn').onclick = async () => {
+    const email = document.getElementById('email').value;
+    const pass = document.getElementById('password').value;
+    try {
+      await signInWithEmailAndPassword(auth, email, pass);
+      document.getElementById('loginError').innerText = '';
+    } catch(e) {
+      document.getElementById('loginError').innerText = 'خطأ في كلمة السر أو البريد';
+    }
+  };
+
+  document.getElementById('logoutBtn').onclick = () => signOut(auth);
+
+  // حفظ منتج جديد أو تعديل
+  document.getElementById('saveProductBtn').onclick = async () => {
+    const id = document.getElementById('editDocId').value;
+    const title = document.getElementById('pTitle').value;
+    const price = Number(document.getElementById('pPrice').value);
+    const cat = document.getElementById('pCat').value;
+    const imageUrl = document.getElementById('pImg').value;
+
+    if (!title || !price) return alert("اكتب الاسم والسعر على الأقل");
+
+    if (id) {
+      await updateDoc(doc(db, "products", id), { title, price, cat, imageUrl });
+    } else {
+      await addDoc(collection(db, "products"), { title, price, cat, imageUrl });
+    }
+
+    document.getElementById('editDocId').value = '';
+    document.getElementById('pTitle').value = '';
+    document.getElementById('pPrice').value = '';
+    document.getElementById('pImg').value = '';
+    document.getElementById('adminModal').style.display = 'none';
+    fetchProducts();
+  };
+
+  // جلب المنتجات
   async function fetchProducts() {
     try {
-      const querySnapshot = await getDocs(collection(db, "products"));
+      const snap = await getDocs(collection(db, "products"));
       products = [];
-      querySnapshot.forEach((docSnap) => {
-        const data = docSnap.data();
-        products.push({
-          name: data.title,
-          price: Number(data.price),
-          image: data.imageUrl,
-          cat: data.cat || "اللحوم"
-        });
-      });
-
-      const found = [...new Set(products.map(p => p.cat).filter(Boolean))];
-      const rank = c => { const i = catOrder.indexOf(c); return i < 0 ? 99 : i; };
-      categories = found.sort((a, b) => rank(a) - rank(b));
-      if (!currentCategory && categories.length > 0) {
-        currentCategory = categories[0];
-      }
-
-      showProducts();
-    } catch (err) {
-      console.error("Error fetching products:", err);
-      document.getElementById("soon").textContent = "حدث خطأ في تحميل المنتجات";
+      snap.forEach(d => products.push({ id: d.id, ...d.data() }));
+      renderProducts();
+    } catch(e) {
+      document.getElementById('soon').innerText = "حدث خطأ أثناء تحميل البيانات";
     }
   }
 
-  function makeImage(p) {
-      const placeholder = () => {
-          const d = document.createElement("div");
-          d.className = "noimg";
-          d.textContent = "🛒";
-          return d;
-      };
-      if (!p.image) return placeholder();
-      const img = document.createElement("img");
-      img.src = p.image;
-      img.alt = p.name;
-      img.onerror = () => img.replaceWith(placeholder());
-      return img;
-  }
+  function renderProducts() {
+    const list = document.getElementById('list');
+    const soon = document.getElementById('soon');
+    list.innerHTML = '';
+    
+    if (products.length === 0) {
+      soon.innerText = 'لا توجد منتجات حتى الآن. اضغط لوحة الإدارة لإضافة أول منتج!';
+      soon.style.display = 'block';
+      return;
+    }
+    soon.style.display = 'none';
 
-  function showProducts() {
-      const box = document.getElementById("list");
-      const soon = document.getElementById("soon");
-      const filterBox = document.getElementById("categories-filter");
+    products.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${p.imageUrl || ''}" onerror="this.src='logo.png'">
+        <span class="price">${p.price} جنيه</span>
+        <h3>${p.title}</h3>
+      `;
       
-      filterBox.innerHTML = "";
-      categories.forEach(cat => {
-          const btn = document.createElement("button");
-          btn.className = cat === currentCategory ? "cat-btn active" : "cat-btn";
-          const count = products.filter(p => p.cat === cat).length;
-          btn.innerHTML = '<span class="cat-ico">' + (catIcons[cat] || "🛍️") + '</span><span>' + cat + '</span><span class="cat-count">' + count + '</span>';
-          btn.onclick = () => {
-              currentCategory = cat;
-              document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
-              btn.classList.add("active");
-              btn.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
-              showProducts();
-          };
-          filterBox.appendChild(btn);
-      });
-
-      const filteredList = products.filter(p => p.cat === currentCategory);
-
-      box.innerHTML = "";
-      filteredList.forEach(p => {
-          const card = document.createElement("div");
-          card.className = "card";
-          card.appendChild(makeImage(p));
-          if (!isNaN(p.price)) {
-              const price = document.createElement("span");
-              price.className = "price";
-              price.textContent = p.price + " جنيه";
-              card.appendChild(price);
-          }
-          const title = document.createElement("h3");
-          title.textContent = p.name;
-          card.appendChild(title);
-          box.appendChild(card);
-      });
-
-      soon.style.display = filteredList.length ? "none" : "block";
-      const updated = document.getElementById("updated");
-      const dateText = new Date().toLocaleDateString("ar-EG-u-nu-latn", { day: "numeric", month: "long", year: "numeric" });
-      updated.textContent = "🗓️ آخر تحديث: " + dateText;
-      updated.style.display = filteredList.length ? "block" : "none";
+      // إذا كان الأدمن مسجلاً دخوله يظهر له زر التعديل والحذف تحت كل منتج
+      if (currentUser) {
+        const actions = document.createElement('div');
+        actions.className = 'admin-card-actions';
+        actions.innerHTML = `
+          <button class="btn-edit">تعديل</button>
+          <button class="btn-del">حذف</button>
+        `;
+        actions.querySelector('.btn-edit').onclick = () => editProduct(p);
+        actions.querySelector('.btn-del').onclick = () => deleteProduct(p.id);
+        card.appendChild(actions);
+      }
+      list.appendChild(card);
+    });
   }
 
-  fetchProducts();
-
-  let deferredPrompt = null;
-  const installBox = document.getElementById("install-box");
-  const installBtn = document.getElementById("install-btn");
-  const iosHint = document.getElementById("ios-hint");
-  const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
-
-  window.addEventListener("beforeinstallprompt", e => {
-      e.preventDefault();
-      deferredPrompt = e;
-      if (!isStandalone) { installBox.style.display = "block"; }
-  });
-
-  installBtn.addEventListener("click", async () => {
-      if (!deferredPrompt) return;
-      deferredPrompt.prompt();
-      await deferredPrompt.userChoice;
-      deferredPrompt = null;
-      installBox.style.display = "none";
-  });
-
-  if (/iphone|ipad|ipod/i.test(navigator.userAgent) && !isStandalone) {
-      installBox.style.display = "block";
-      iosHint.style.display = "block";
+  function editProduct(p) {
+    document.getElementById('editDocId').value = p.id;
+    document.getElementById('pTitle').value = p.title;
+    document.getElementById('pPrice').value = p.price;
+    document.getElementById('pCat').value = p.cat || 'اللحوم';
+    document.getElementById('pImg').value = p.imageUrl || '';
+    document.getElementById('adminModal').style.display = 'flex';
   }
 
-  if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("sw.js");
+  async function deleteProduct(id) {
+    if (confirm("هل تريد حذف هذا المنتج؟")) {
+      await deleteDoc(doc(db, "products", id));
+      fetchProducts();
+    }
   }
 </script>
 </body>
