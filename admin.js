@@ -61,8 +61,93 @@ style.textContent = `
 .editor .del:disabled{opacity:.6}
 .adm-toast{position:fixed;top:16px;left:50%;transform:translateX(-50%);background:#1e9e4a;color:#fff;padding:10px 22px;border-radius:24px;font-weight:800;z-index:300;box-shadow:0 4px 14px rgba(0,0,0,.3)}
 .adm-toast.bad{background:#d62828}
+
+/* ===== رسائل التنبيه الفخمة للمدير ===== */
+.boss-modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(4px); z-index: 1000; display: flex;
+    align-items: center; justify-content: center; padding: 20px;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+}
+.boss-modal-overlay.show { opacity: 1; pointer-events: auto; }
+.boss-modal-card {
+    background: #ffffff; border-radius: 24px; width: min(420px, 92vw);
+    padding: 30px 24px; text-align: center; position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3); transform: scale(0.8);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.boss-modal-overlay.show .boss-modal-card { transform: scale(1); }
+.boss-close-btn {
+    position: absolute; top: 15px; left: 15px; background: #f0f0f0;
+    border: none; width: 36px; height: 36px; border-radius: 50%;
+    font-size: 18px; font-weight: bold; color: #555; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, transform 0.1s;
+}
+.boss-close-btn:hover { background: #e0e0e0; transform: scale(1.1); }
+.boss-icon-wrapper {
+    width: 90px; height: 90px; border-radius: 50%; margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center; font-size: 48px;
+}
+.boss-icon-wrapper.login { background: #e6f9ed; color: #1e9e4a; border: 4px solid #1e9e4a; }
+.boss-icon-wrapper.logout { background: #ffebeb; color: #d62828; border: 4px solid #d62828; }
+.boss-title { font-size: 26px; font-weight: 800; color: #2b211c; margin-bottom: 10px; }
+.boss-subtitle { font-size: 16px; color: #666; margin-bottom: 24px; font-weight: 600; }
+.boss-action-btn {
+    width: 100%; padding: 14px; border-radius: 30px; border: none;
+    font-size: 18px; font-weight: 800; font-family: 'Cairo', sans-serif;
+    cursor: pointer; color: white; transition: transform 0.2s, box-shadow 0.2s;
+}
+.boss-action-btn.login { background: linear-gradient(135deg, #1e9e4a, #157a38); box-shadow: 0 6px 18px rgba(30,158,74,0.3); }
+.boss-action-btn.logout { background: linear-gradient(135deg, #d62828, #a81c1c); box-shadow: 0 6px 18px rgba(214,40,40,0.3); }
+.boss-action-btn:active { transform: scale(0.98); }
 `;
 document.head.appendChild(style);
+
+// ===== إنشاء النافذة المنبثقة للرسائل =====
+const bossModal = document.createElement("div");
+bossModal.className = "boss-modal-overlay";
+bossModal.innerHTML = `
+<div class="boss-modal-card">
+    <button class="boss-close-btn" id="boss-x-btn" type="button">✕</button>
+    <div class="boss-icon-wrapper" id="boss-icon">✓</div>
+    <div class="boss-title" id="boss-title">عنوان الرسالة</div>
+    <div class="boss-subtitle" id="boss-sub">نص فرعي للرسالة</div>
+    <button class="boss-action-btn" id="boss-ok-btn" type="button">حسناً</button>
+</div>`;
+document.body.appendChild(bossModal);
+
+function showBossAlert(type) {
+    const icon = $("boss-icon");
+    const title = $("boss-title");
+    const sub = $("boss-sub");
+    const btn = $("boss-ok-btn");
+
+    if (type === "login") {
+        icon.className = "boss-icon-wrapper login";
+        icon.textContent = "✓";
+        title.textContent = "تم تسجيل دخولك يا مدير 👑";
+        sub.textContent = "أهلاً بك! يمكنك الآن تعديل المنتجات والأسعار بسهولة.";
+        btn.className = "boss-action-btn login";
+        btn.textContent = "بدء العمل 🚀";
+    } else {
+        icon.className = "boss-icon-wrapper logout";
+        icon.textContent = "🚪";
+        title.textContent = "المدير خرج 👋";
+        sub.textContent = "تم تسجيل الخروج بنجاح. نتمنى لك يوماً سعيداً!";
+        btn.className = "boss-action-btn logout";
+        btn.textContent = "إغلاق";
+    }
+    bossModal.classList.add("show");
+}
+
+function hideBossAlert() {
+    bossModal.classList.remove("show");
+}
+
+$("boss-x-btn").onclick = hideBossAlert;
+$("boss-ok-btn").onclick = hideBossAlert;
+bossModal.onclick = (e) => { if (e.target === bossModal) hideBossAlert(); };
 
 // ===== واجهة الدخول =====
 const tab = document.createElement("button");
@@ -132,7 +217,11 @@ tab.onclick = openPanel;
 backdrop.onclick = closePanel;
 $("adm-close").onclick = closePanel;
 $("adm-add").onclick = () => { closePanel(); openAdd(); };
-$("adm-out").onclick = () => { signOut(auth); closePanel(); };
+$("adm-out").onclick = () => {
+    signOut(auth);
+    closePanel();
+    showBossAlert("logout");
+};
 
 async function doLogin() {
     const btn = $("adm-go");
@@ -142,6 +231,7 @@ async function doLogin() {
         await signInWithEmailAndPassword(auth, $("adm-email").value.trim(), $("adm-pass").value);
         $("adm-pass").value = "";
         closePanel();
+        showBossAlert("login");
     } catch (e) {
         $("adm-err").textContent = "الإيميل أو الباسورد غلط";
     }
