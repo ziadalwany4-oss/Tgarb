@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>صن ماركت بورسعيد</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ff6600">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="صن مول">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<meta name="google-site-verification" content="c1f54c6NEsWV5FpHwbb8iN7rLEUSKM_YwxwCIt5o8yI" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4Y4Y0VEFJY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4Y4Y0VEFJY');
+</script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+body { background-color: #fff9f2; color: #333; min-height: 100vh; display: flex; flex-direction: column; }
+
+/* الهيدر */
+.top-header { background-color: #ffffff; padding: 15px 30px; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-bottom: 4px solid #19A7B9; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.logo { height: 56px; }
+.top-header .contact-btn { background-color: #ff6600; color: #ffffff; padding: 8px 20px; text-decoration: none; border-radius: 20px; font-weight: 700; font-size: 15px; margin-right: auto; }
+
+.hero-section { background: linear-gradient(135deg, #ff6600 0%, #ff8800 100%); color: white; text-align: center; padding: 40px 20px 70px; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 0 0 50% 50% / 0 0 50px 50px; }
+.hero-section h1 { font-size: 42px; font-weight: 800; margin-bottom: 15px; }
+.hl { color: #FFE14D; }
+.hero-section p { font-size: 20px; margin-bottom: 15px; opacity: 0.95; }
+
+/* زر تثبيت التطبيق */
+.install-container { display: none; margin-top: 20px; background: rgba(0, 0, 0, 0.15); padding: 15px 20px; border-radius: 20px; border: 2px dashed #FFE14D; text-align: center; width: min(90%, 400px); }
+.install-title { font-size: 16px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+#install-btn { background: #FFE14D; color: #2b211c; border: none; padding: 14px 30px; border-radius: 30px; font-family: 'Cairo', sans-serif; font-weight: 800; font-size: 18px; cursor: pointer; box-shadow: 0 6px 20px rgba(0,0,0,0.3); width: 100%; transition: all 0.3s ease; }
+#install-btn:hover { background: #ffcc00; transform: translateY(-2px); }
+#ios-hint { display: none; margin-top: 12px; font-size: 14px; background: #ffffff; color: #2b211c; padding: 10px 14px; border-radius: 12px; font-weight: 700; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+
+/* واتساب */
+.whatsapp-float { position: fixed; bottom: 20px; left: 20px; background-color: #25D366; color: #ffffff; padding: 12px 20px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.25); z-index: 100; }
+.headr { margin-bottom: 60px; }
+
+/* الفوتر */
+.site-footer { background-color: #2b211c; color: #e6dcd3; text-align: center; padding: 20px 20px; font-size: 14px; font-weight: 400; line-height: 1.7; margin-top: auto; border-top: 3px solid #ff6600; }
+.site-footer strong { color: #ffffff; font-weight: 600; }
+.site-footer p + p { margin-top: 6px; font-size: 15px; color: #efe6de; }
+.site-footer .dev { color: #ff8a3d; font-weight: 700; }
+@media (max-width: 600px) { .site-footer { padding-bottom: 80px; } }
+
+.top-title { flex: 1; text-align: center; font-size: clamp(17px, 4.6vw, 28px); font-weight: 800; margin: 0 8px; line-height: 1.3; }
+.t-orange { color: #ff6600; }
+.t-teal { color: #19A7B9; }
+@media (max-width: 600px) {
+    .top-header { padding: 10px 12px; }
+    .logo { height: 44px; }
+    .top-header .contact-btn { padding: 6px 12px; font-size: 13px; }
+}
+
+/* موقعنا ومواعيد العمل */
+.store { width: min(560px, 92%); margin: 0 auto 50px; }
+.store-title { text-align: center; font-size: 28px; font-weight: 800; color: #2b211c; }
+.store-title::after { content: ""; display: block; width: 70px; height: 4px; background: #ff6600; border-radius: 2px; margin: 10px auto 24px; }
+.store-card { display: grid; grid-template-columns: 1fr; background: #ffffff; border-radius: 18px; overflow: hidden; box-shadow: 0 4px 18px rgba(43,33,28,0.12); }
+.store-info { padding: 26px 24px; }
+.status { display: inline-block; padding: 6px 20px; border-radius: 20px; color: #ffffff; font-weight: 800; font-size: 16px; margin-bottom: 18px; }
+.status.open { background: #1e9e4a; }
+.status.closed { background: #d62828; }
+.row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; }
+.row .ico { flex: 0 0 42px; height: 42px; border-radius: 50%; background: #fff1e6; color: #ff6600; display: flex; align-items: center; justify-content: center; font-size: 19px; }
+.row .lbl { font-size: 13px; color: #8a7b72; }
+.row .val { font-size: 16px; font-weight: 600; color: #2b211c; line-height: 1.6; }
+.store-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+.btn { padding: 10px 22px; border-radius: 24px; text-decoration: none; font-weight: 700; font-size: 15px; }
+.btn-main { background: #ff6600; color: #ffffff; }
+.btn-alt { border: 2px solid #19A7B9; color: #19A7B9; }
+
+/* المنتجات والأقسام */
+.products { width: min(1000px, 92%); margin: 0 auto 50px; }
+.products-title { text-align: center; font-size: 28px; font-weight: 800; color: #2b211c; }
+.products-title::after { content: ""; display: block; width: 70px; height: 4px; background: #ff6600; border-radius: 2px; margin: 10px auto 20px; }
+
+.categories-filter { display: flex; justify-content: safe center; gap: 10px; overflow-x: auto; padding: 10px 4px 12px; margin: 0 -4px 18px; position: sticky; top: 0; z-index: 30; background: rgba(255, 249, 242, 0.95); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.categories-filter::-webkit-scrollbar { display: none; }
+.cat-btn { flex: 0 0 auto; display: flex; align-items: center; gap: 7px; background: #ffffff; border: 2px solid #ffd9bf; color: #5a3a24; padding: 9px 16px; border-radius: 999px; font-weight: 700; font-size: 15px; font-family: 'Cairo', sans-serif; white-space: nowrap; cursor: pointer; box-shadow: 0 2px 6px rgba(43, 33, 28, 0.06); transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s, box-shadow 0.2s; }
+.cat-btn .cat-ico { font-size: 18px; line-height: 1; }
+.cat-btn .cat-count { font-size: 12px; font-weight: 800; background: #fff1e6; color: #ff6600; border-radius: 999px; padding: 0 8px; line-height: 20px; }
+.cat-btn:active { transform: scale(0.95); }
+.cat-btn.active { background: linear-gradient(135deg, #ff6600, #ff8800); border-color: #ff6600; color: #ffffff; box-shadow: 0 6px 16px rgba(255, 102, 0, 0.35); }
+.cat-btn.active .cat-count { background: rgba(255, 255, 255, 0.28); color: #ffffff; }
+@media (hover: hover) { .cat-btn:not(.active):hover { border-color: #ff6600; color: #ff6600; } }
+
+.soon { text-align: center; color: #8a7b72; font-size: 16px; padding: 20px 0; }
+.updated { display: none; width: fit-content; margin: 0 auto 20px; padding: 6px 16px; background: #fff1e6; color: #2b211c; border: 1.5px solid #ff6600; border-radius: 20px; font-size: 15px; font-weight: 700; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+.card { background: #ffffff; border-radius: 14px; overflow: hidden; position: relative; box-shadow: 0 2px 10px rgba(43,33,28,0.12); transition: transform 0.2s; }
+.card:hover { transform: translateY(-4px); }
+.card img, .card .noimg { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.card .noimg { background: #fff1e6; display: flex; align-items: center; justify-content: center; font-size: 40px; }
+.card h3 { margin: 0; padding: 12px 12px 16px; font-size: 16px; font-weight: 700; color: #2b211c; text-align: center; border-top: 3px solid #ff6600; }
+.price { position: absolute; top: 8px; right: 8px; background: #d62828; color: #ffffff; border: 2px solid #ffd21f; border-radius: 20px; padding: 3px 12px; font-weight: 800; font-size: 17px; }
+@media (min-width: 768px) { .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; } }
+
+/* منتج غير متوفر */
+.card.soldout img, .card.soldout .noimg { filter: grayscale(1); opacity: 0.5; }
+.soldout-badge { position: absolute; top: 0; left: 0; right: 0; aspect-ratio: 3 / 2; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+.soldout-badge span { background: #d62828; color: #ffffff; font-weight: 800; font-size: 18px; padding: 6px 22px; border-radius: 8px; border: 2px solid #ffffff; transform: rotate(-8deg); box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+.price.gone { background: #8d8d8d; border-color: #cfcfcf; text-decoration: line-through; }
+
+/* شارة العرض */
+.offer-badge { position: absolute; top: 8px; left: 8px; background: #FFE14D; color: #2b211c; border-radius: 20px; padding: 3px 12px; font-weight: 800; font-size: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); z-index: 2; }
+
+/* زرار عرض اليوم */
+.cat-btn.offer-btn { border-color: #d62828; color: #d62828; background: #fff5f5; }
+.cat-btn.offer-btn .cat-count { background: #d62828; color: #ffffff; }
+.cat-btn.offer-btn.active { background: linear-gradient(135deg, #d62828, #ff6600); border-color: #d62828; color: #ffffff; box-shadow: 0 6px 16px rgba(214, 40, 40, 0.4); }
+.cat-btn.offer-btn.active .cat-count { background: rgba(255, 255, 255, 0.28); }
+.cat-btn.offer-btn:not(.active) { animation: offerPulse 1.8s ease-in-out infinite; }
+@keyframes offerPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+@media (hover: hover) { .cat-btn.offer-btn:not(.active):hover { border-color: #d62828; color: #d62828; } }
+</style>
+</head>
+<body>
+<div class="headr">
+<header>
+
+<div class="top-header">
+    <div class="brand">
+        <img src="logo.png" alt="صن مول" class="logo">
+    </div>
+    <h2 class="top-title"><span class="t-orange">صن ماركت</span> <span class="t-teal">بورسعيد</span></h2>
+</div>
+
+<section class="hero-section">
+    <h1>مرحبا بكم فى <span class="hl">صن ماركت بورسعيد</span></h1>
+    <p>كل ما تحتاج عروض مش هتلاقيها غير في صن ماركت بورسعيد</p>
+
+    <!-- زر تثبيت التطبيق الواضح والبارز -->
+    <div id="install-box" class="install-container">
+        <div class="install-title">💡 نزّل تطبيق الماركت على موبايلك لسهولة المتابعة!</div>
+        <button id="install-btn" type="button">📲 ثبّت التطبيق الآن</button>
+    </div>
+
+    <!-- توضيح لمستخدمي آيفون -->
+    <p id="ios-hint">📌 لتثبيت التطبيق على آيفون: اضغط زر "المشاركة" في سفاري، ثم اختر "إضافة إلى الشاشة الرئيسية"</p>
+</section>
+</header>
+</div>
+
+<section class="products">
+    <h2 class="products-title">منتجاتنا وعروضنا</h2>
+
+    <!-- شريط الأقسام -->
+    <div class="categories-filter" id="categories-filter"></div>
+
+    <p class="updated" id="updated"></p>
+    <div class="grid" id="list"></div>
+    <p class="soon" id="soon">لا توجد منتجات في هذا القسم حالياً</p>
+</section>
+
+<section class="store">
+    <h2 class="store-title">موقعنا ومواعيد العمل</h2>
+    <div class="store-card">
+        <div class="store-info">
+            <div id="status" class="status">...</div>
+            <div class="row">
+                <div class="ico">📍</div>
+                <div><div class="lbl">العنوان</div><div class="val" id="address"></div></div>
+            </div>
+            <div class="row">
+                <div class="ico">🕒</div>
+                <div><div class="lbl">مواعيد العمل</div><div class="val" id="hours"></div></div>
+            </div>
+            <div class="row">
+                <div class="ico">📞</div>
+                <div><div class="lbl">للتواصل</div><div class="val" id="phone" dir="ltr" style="text-align:right"></div></div>
+            </div>
+            <div class="store-btns">
+                <a id="dir-link" class="btn btn-main" href="#" target="_blank" rel="noopener">عرض الموقع على الخريطة</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <p>© 2026 <strong>صن ماركت بورسعيد</strong>. جميع الحقوق محفوظة.</p>
+    <p>تصميم وبرمجة: <strong class="dev">زياد سامى</strong></p>
+</footer>
+<a href="https://wa.me/201061820998?text=أهلاً، عاوز أسأل عن عروض صن مول" class="whatsapp-float" target="_blank" rel="noopener">واتساب 💬</a>
+<script>
+// ===== بيانات الماركت =====
+const shop = {
+    address: "ش طرح البحر 2، بجوار مسجد السلام، أمام جلال كافيه - بورسعيد",
+    lat: 31.269194,
+    lon: 32.312472,
+    phone: "01061820998",
+    openTime: "08:00",
+    closeTime: "23:30"
+};
+
+const toMin = t => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
+const fmt = t => {
+    let [h, m] = t.split(":").map(Number);
+    const p = h >= 12 ? "م" : "ص";
+    h = h % 12 || 12;
+    return h + ":" + String(m).padStart(2, "0") + " " + p;
+};
+
+function nowMinutes() {
+    const parts = new Intl.DateTimeFormat("en-GB", {
+        timeZone: "Africa/Cairo", hour: "2-digit", minute: "2-digit", hour12: false
+    }).formatToParts(new Date());
+    const h = Number(parts.find(x => x.type === "hour").value) % 24;
+    const m = Number(parts.find(x => x.type === "minute").value);
+    return h * 60 + m;
+}
+
+function isOpen() {
+    const n = nowMinutes(), o = toMin(shop.openTime), c = toMin(shop.closeTime);
+    return o < c ? (n >= o && n < c) : (n >= o || n < c);
+}
+
+function renderStatus() {
+    const el = document.getElementById("status");
+    const open = isOpen();
+    el.textContent = open ? "مفتوح الآن" : "مغلق الآن";
+    el.className = "status " + (open ? "open" : "closed");
+}
+
+document.getElementById("hours").textContent = "🕒 من " + fmt(shop.openTime) + " إلى " + fmt(shop.closeTime);
+document.getElementById("address").textContent = "📍 " + shop.address;
+document.getElementById("phone").innerHTML = '<a href="tel:+2' + shop.phone + '" style="color:inherit;text-decoration:none">' + shop.phone + '</a>';
+document.getElementById("dir-link").href = "https://www.google.com/maps?q=" + shop.lat + "," + shop.lon;
+renderStatus();
+setInterval(renderStatus, 60000);
+
+const lastUpdate = "2026-10-26";
+let dateText = new Date(lastUpdate + "T12:00:00")
+    .toLocaleDateString("ar-EG-u-nu-latn", { day: "numeric", month: "long", year: "numeric" });
+
+// ===== نسخة احتياطية للمنتجات (الأصل بيتقرا من Firestore) =====
+let products = [
+    { name: "صن مول زيت خليط 900 مل", price: 65, image: "srft.jpeg", cat: "الزيوت والسمن" },
+    { name: "صن زيت عباد الشمس 900 مل", price: 69, image: "poik.jpg", cat: "الزيوت والسمن" },
+    { name: "سمان رويال سوبر جامبو", price: 126, image: "dar.jpeg", cat: "دواجن" },
+    { name: "برجر دارا وزن", price: 229.95, image: "kofta.jpg", cat: "اللحوم" },
+    { name: "سجق دارا وزن", price: 229.95, image: "sag.jpeg", cat: "اللحوم" },
+    { name: "طبق كفتة وزن", price: 229.95, image: "bar.jpeg", cat: "اللحوم" },
+    { name: "لحمه كتف برازيلى الكيلو", price: 330, image: "brazel.jpg", cat: "اللحوم" },
+    { name: "لحمه موزه برازيلي الكيلو", price: 330, image: "moza.jpg", cat: "اللحوم" },
+    { name: "لحمه كباب برازيلي الكيلو", price: 330, image: "kabab.jpg", cat: "اللحوم" },
+    { name: "لحمه سن برازيلي الكيلو", price: 315, image: "san.jpg", cat: "اللحوم" },
+    { name: "لحمه رقبه برازيلى الكيلو", price: 315, image: "rag.jpg", cat: "اللحوم" },
+    { name: "مفروم برازيلي لحم صافى الكيلو", price: 315, image: "maf.jpg", cat: "اللحوم" },
+    { name: "الوطنية دجاج 1000-1100 جم", price: 179.95, image: "rtg.jpg", cat: "دواجن" },
+    { name: "الوطنية دجاج 1100-1200 جم", price: 194.95, image: "rtg.jpg", cat: "دواجن" },
+    { name: "شهد دجاج مجمد 1100-1200 جم", price: 184.95, image: "wal.jpg", cat: "دواجن" },
+    { name: "صن تشكين دجاج مجمد 1100-1200 جم", price: 151.95, image: "rfgh.jpg", cat: "دواجن" },
+    { name: "قلية زيت 2.100 مل", price: 179.95, image: "kala.jpg", cat: "الزيوت والسمن" },
+    { name: "كريستال عباد 1.6 لتر", price: 173.95, image: "abad.jpeg", cat: "الزيوت والسمن" },
+    { name: "كريستال سمن اصفر 2 كيلو", price: 234.95, image: "kerstal.jpeg", cat: "الزيوت والسمن" },
+    { name: "موبي جبنة موزاريلا طبيعي مبشور 1 كيلو", price: 309.95, image: "uij.jpg", cat: "الأجبان" },
+    { name: "موبي جبنة موزاريلا انالوج مبشور 1 كيلو", price: 149.95, image: "zas.jpg", cat: "الأجبان" },
+    { name: "جيفريكس بامية صغيرة 400 جم", price: 59.95, image: "sak.jpeg", cat: "الخضروات المجمدة" },
+    { name: "جيفريكس ورق عنب 250 جم", price: 54.95, image: "ewe.jpeg", cat: "الخضروات المجمدة" },
+    { name: "جيفريكس بامية خصوصي 400 جم", price: 89.95, image: "lal.jpeg", cat: "الخضروات المجمدة" },
+    { name: "بسمة بسلة سادة 400 جم", price: 52.95, image: "poi.jpeg", cat: "الخضروات المجمدة" },
+    { name: "جيفريكس بسلة سادة 400 جم", price: 59.95, image: "swq.jpeg", cat: "الخضروات المجمدة" },
+    { name: "بسمة بسلة بالجزر 400 جم", price: 28.50, image: "psla.jpg", cat: "الخضروات المجمدة" },
+    { name: "بسمة شوربة خضار 400 جم", price: 20.25, image: "sarp.jpg", cat: "الخضروات المجمدة" },
+    { name: "بسمة ملوخية 400 جم", price: 17.75, image: "wre.jpg", cat: "الخضروات المجمدة" },
+    { name: "بسمة بامية زيرو 400 جم", price: 47.95, image: "pama.jpg", cat: "الخضروات المجمدة" },
+    { name: "جيفريكس خضار للشوربة 400 جم", price: 25.95, image: "hg.jpeg", cat: "الخضروات المجمدة" },
+    { name: "جيفريكس بسلة بالجزر 400 جم", price: 44.95, image: "yuyu.jpeg", cat: "الخضروات المجمدة" }
+];
+
+function makeImage(p) {
+    const placeholder = () => {
+        const d = document.createElement("div");
+        d.className = "noimg";
+        d.textContent = "🛒";
+        return d;
+    };
+    const src = p.imageData || p.image;
+    if (!src) return placeholder();
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = p.name;
+    img.onerror = () => img.replaceWith(placeholder());
+    return img;
+}
+
+// ترتيب الأقسام وأيقوناتها بدون "الكل"
+const catOrder = ["اللحوم", "دواجن", "الزيوت والسمن", "الأجبان", "الخضروات المجمدة"];
+const catIcons = { "اللحوم": "🥩", "دواجن": "🍗", "الزيوت والسمن": "🫒", "الأجبان": "🧀", "الخضروات المجمدة": "🥦" };
+const rank = c => { const i = catOrder.indexOf(c); return i < 0 ? 99 : i; };
+let categories = [];
+let currentCategory = "";
+const OFFERS = "__offers";
+const isOffer = p => !p.soldOut && !!p.offer;
+function setProducts(list) {
+    products = list;
+    categories = [...new Set(products.map(p => p.cat).filter(Boolean))].sort((a, b) => rank(a) - rank(b));
+    const offersAlive = currentCategory === OFFERS && products.some(isOffer);
+    if (!offersAlive && !categories.includes(currentCategory)) currentCategory = categories[0] || "";
+    const stamps = products.map(p => p.updatedAt).filter(Boolean);
+    if (stamps.length) {
+        dateText = new Date(Math.max(...stamps)).toLocaleDateString("ar-EG-u-nu-latn", { day: "numeric", month: "long", year: "numeric" });
+    }
+    document.getElementById("categories-filter").innerHTML = "";
+    showProducts();
+}
+window.__setProducts = setProducts;
+window.__rerender = () => setProducts(products);
+
+function showProducts() {
+    const box = document.getElementById("list");
+    const soon = document.getElementById("soon");
+    const filterBox = document.getElementById("categories-filter");
+
+    if (filterBox.innerHTML === "") {
+        const offerCount = products.filter(isOffer).length;
+        if (offerCount) {
+            const ob = document.createElement("button");
+            ob.className = currentCategory === OFFERS ? "cat-btn offer-btn active" : "cat-btn offer-btn";
+            ob.innerHTML = '<span class="cat-ico">🔥</span><span>عرض اليوم</span><span class="cat-count">' + offerCount + '</span>';
+            ob.onclick = () => {
+                currentCategory = OFFERS;
+                document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
+                ob.classList.add("active");
+                ob.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+                showProducts();
+            };
+            filterBox.appendChild(ob);
+        }
+        categories.forEach(cat => {
+            const btn = document.createElement("button");
+            btn.className = cat === currentCategory ? "cat-btn active" : "cat-btn";
+            const count = products.filter(p => p.cat === cat).length;
+            btn.innerHTML = (catIcons[cat] ? '<span class="cat-ico">' + catIcons[cat] + '</span>' : '') + '<span>' + cat + '</span><span class="cat-count">' + count + '</span>';
+            btn.onclick = () => {
+                currentCategory = cat;
+                document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                btn.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+                showProducts();
+            };
+            filterBox.appendChild(btn);
+        });
+    }
+
+    const filteredList = currentCategory === OFFERS
+        ? products.filter(isOffer)
+        : products.filter(p => p.cat === currentCategory);
+
+    box.innerHTML = "";
+    filteredList.forEach(p => {
+        const card = document.createElement("div");
+        card.className = p.soldOut ? "card soldout" : "card";
+        card.appendChild(makeImage(p));
+        if (p.soldOut) {
+            const badge = document.createElement("div");
+            badge.className = "soldout-badge";
+            badge.innerHTML = "<span>غير متوفر</span>";
+            card.appendChild(badge);
+        }
+        if (!isNaN(p.price)) {
+            const price = document.createElement("span");
+            price.className = p.soldOut ? "price gone" : "price";
+            price.textContent = p.price + " جنيه";
+            if (isOffer(p)) {
+                const badge = document.createElement("span");
+                badge.className = "offer-badge";
+                badge.textContent = "🔥 عرض";
+                card.appendChild(badge);
+            }
+            card.appendChild(price);
+        }
+        const title = document.createElement("h3");
+        title.textContent = p.name;
+        card.appendChild(title);
+        // محرر الاسم والسعر (بيظهر للأدمن بس)
+        if (window.__isAdmin && p.id) card.appendChild(window.__editor(p));
+        box.appendChild(card);
+    });
+
+    soon.textContent = "لا توجد منتجات في هذا القسم حالياً";
+    soon.style.display = filteredList.length ? "none" : "block";
+    const updated = document.getElementById("updated");
+    updated.textContent = "🗓️ آخر تحديث للأسعار: " + dateText;
+    updated.style.display = filteredList.length ? "block" : "none";
+}
+
+setProducts(products);
+
+// ===== تفعيل زر التثبيت والتوجيه =====
+let deferredPrompt = null;
+const installBox = document.getElementById("install-box");
+const installBtn = document.getElementById("install-btn");
+const iosHint = document.getElementById("ios-hint");
+const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
+
+window.addEventListener("beforeinstallprompt", e => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (!isStandalone) {
+        installBox.style.display = "block";
+    }
+});
+
+installBtn.addEventListener("click", async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    installBox.style.display = "none";
+});
+
+window.addEventListener("appinstalled", () => {
+    installBox.style.display = "none";
+});
+
+if (/iphone|ipad|ipod/i.test(navigator.userAgent) && !isStandalone) {
+    installBox.style.display = "block";
+    iosHint.style.display = "block";
+}
+
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js");
+}
+</script>
+<script type="module" src="admin.js?v=5"></script>
+</body>
+</html>
