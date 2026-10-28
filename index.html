@@ -19,11 +19,28 @@
   gtag('js', new Date());
   gtag('config', 'G-4Y4Y0VEFJY');
 </script>
+
+<!-- فحص فوري لمنع الرمشة عند الريفرش مباشرة قبل تحميل عناصر الصفحة -->
+<script>
+  (function() {
+    var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var alreadyShown = sessionStorage.getItem("sun_intro_played");
+    if (prefersReduced || alreadyShown) {
+      document.documentElement.classList.add("skip-intro");
+    }
+  })();
+</script>
+
 <style>
+/* إخفاء شاشة المقدمة فوراً ومنع الرمشة لو كانت معروضة سابقاً */
+html.skip-intro #sun-market-intro {
+    display: none !important;
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
 body { background-color: #fff9f2; color: #333; min-height: 100vh; display: flex; flex-direction: column; }
 
-/* تصميم شاشة المقدمة الخرافية */
+/* تصميم شاشة المقدمة الفخمة */
 #sun-market-intro {
     position: fixed;
     top: 0;
@@ -78,7 +95,6 @@ body { background-color: #fff9f2; color: #333; min-height: 100vh; display: flex;
     margin-bottom: 18px;
 }
 
-/* إضاءة خلفية قوية ورا اللوجو */
 .intro-logo-wrapper::after {
     content: '';
     position: absolute;
@@ -362,14 +378,10 @@ body { background-color: #fff9f2; color: #333; min-height: 100vh; display: flex;
 <a href="https://wa.me/201061820998?text=أهلاً، عاوز أسأل عن عروض صن مول" class="whatsapp-float" target="_blank" rel="noopener">واتساب 💬</a>
 
 <script>
-  // منطق تشغيل المقدمة (مرة واحدة في الجلسة - لا تتأثر بالريفرش)
+  // منطق تشغيل المقدمة وإدارتها عند أول فتح للجلسة
   document.addEventListener("DOMContentLoaded", function () {
     const intro = document.getElementById("sun-market-intro");
-    
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const alreadyShown = sessionStorage.getItem("sun_intro_played");
-
-    if (prefersReducedMotion || alreadyShown) {
+    if (!intro || document.documentElement.classList.contains("skip-intro")) {
       if (intro) intro.remove();
       return;
     }
